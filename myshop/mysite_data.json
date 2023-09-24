@@ -1,0 +1,1107 @@
+[
+{
+  "model": "admin.logentry",
+  "pk": 1,
+  "fields": {
+    "action_time": "2023-09-22T04:53:03.519Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "1",
+    "object_repr": "Motherboard",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 2,
+  "fields": {
+    "action_time": "2023-09-22T04:55:13.302Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "1",
+    "object_repr": "ASUS Z790",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 3,
+  "fields": {
+    "action_time": "2023-09-22T04:57:10.814Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "2",
+    "object_repr": "RAM",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 4,
+  "fields": {
+    "action_time": "2023-09-22T04:57:20.120Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "3",
+    "object_repr": "Case",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 5,
+  "fields": {
+    "action_time": "2023-09-22T04:57:34.284Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "4",
+    "object_repr": "CPU Intel",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 6,
+  "fields": {
+    "action_time": "2023-09-22T04:57:47.314Z",
+    "user": 1,
+    "content_type": 7,
+    "object_id": "5",
+    "object_repr": "Power Supply",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 7,
+  "fields": {
+    "action_time": "2023-09-22T04:59:42.953Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "2",
+    "object_repr": "ASUS X670",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 8,
+  "fields": {
+    "action_time": "2023-09-22T05:00:47.172Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "3",
+    "object_repr": "ASUS X670 prime",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 9,
+  "fields": {
+    "action_time": "2023-09-22T05:29:11.501Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Intel i3",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 10,
+  "fields": {
+    "action_time": "2023-09-22T05:29:42.915Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "5",
+    "object_repr": "Case white",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 11,
+  "fields": {
+    "action_time": "2023-09-22T05:30:19.630Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "6",
+    "object_repr": "Super Power Supply",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 12,
+  "fields": {
+    "action_time": "2023-09-22T05:31:15.504Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Ram Aedeon",
+    "action_flag": 1,
+    "change_message": "[{\"added\": {}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 13,
+  "fields": {
+    "action_time": "2023-09-22T05:32:32.537Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Intel i3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 14,
+  "fields": {
+    "action_time": "2023-09-22T05:33:04.973Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Intel i3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 15,
+  "fields": {
+    "action_time": "2023-09-22T05:33:13.056Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Intel i3",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 16,
+  "fields": {
+    "action_time": "2023-09-22T05:34:52.715Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Ram Aedeon",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 17,
+  "fields": {
+    "action_time": "2023-09-22T05:35:00.896Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "7",
+    "object_repr": "Ram Aedeon",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Image\"]}}]"
+  }
+},
+{
+  "model": "admin.logentry",
+  "pk": 18,
+  "fields": {
+    "action_time": "2023-09-22T05:37:12.966Z",
+    "user": 1,
+    "content_type": 8,
+    "object_id": "4",
+    "object_repr": "Intel i5",
+    "action_flag": 2,
+    "change_message": "[{\"changed\": {\"fields\": [\"Name\", \"Slug\", \"Image\"]}}]"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 1,
+  "fields": {
+    "name": "Can add log entry",
+    "content_type": 1,
+    "codename": "add_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 2,
+  "fields": {
+    "name": "Can change log entry",
+    "content_type": 1,
+    "codename": "change_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 3,
+  "fields": {
+    "name": "Can delete log entry",
+    "content_type": 1,
+    "codename": "delete_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 4,
+  "fields": {
+    "name": "Can view log entry",
+    "content_type": 1,
+    "codename": "view_logentry"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 5,
+  "fields": {
+    "name": "Can add permission",
+    "content_type": 2,
+    "codename": "add_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 6,
+  "fields": {
+    "name": "Can change permission",
+    "content_type": 2,
+    "codename": "change_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 7,
+  "fields": {
+    "name": "Can delete permission",
+    "content_type": 2,
+    "codename": "delete_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 8,
+  "fields": {
+    "name": "Can view permission",
+    "content_type": 2,
+    "codename": "view_permission"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 9,
+  "fields": {
+    "name": "Can add group",
+    "content_type": 3,
+    "codename": "add_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 10,
+  "fields": {
+    "name": "Can change group",
+    "content_type": 3,
+    "codename": "change_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 11,
+  "fields": {
+    "name": "Can delete group",
+    "content_type": 3,
+    "codename": "delete_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 12,
+  "fields": {
+    "name": "Can view group",
+    "content_type": 3,
+    "codename": "view_group"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 13,
+  "fields": {
+    "name": "Can add user",
+    "content_type": 4,
+    "codename": "add_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 14,
+  "fields": {
+    "name": "Can change user",
+    "content_type": 4,
+    "codename": "change_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 15,
+  "fields": {
+    "name": "Can delete user",
+    "content_type": 4,
+    "codename": "delete_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 16,
+  "fields": {
+    "name": "Can view user",
+    "content_type": 4,
+    "codename": "view_user"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 17,
+  "fields": {
+    "name": "Can add content type",
+    "content_type": 5,
+    "codename": "add_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 18,
+  "fields": {
+    "name": "Can change content type",
+    "content_type": 5,
+    "codename": "change_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 19,
+  "fields": {
+    "name": "Can delete content type",
+    "content_type": 5,
+    "codename": "delete_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 20,
+  "fields": {
+    "name": "Can view content type",
+    "content_type": 5,
+    "codename": "view_contenttype"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 21,
+  "fields": {
+    "name": "Can add session",
+    "content_type": 6,
+    "codename": "add_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 22,
+  "fields": {
+    "name": "Can change session",
+    "content_type": 6,
+    "codename": "change_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 23,
+  "fields": {
+    "name": "Can delete session",
+    "content_type": 6,
+    "codename": "delete_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 24,
+  "fields": {
+    "name": "Can view session",
+    "content_type": 6,
+    "codename": "view_session"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 25,
+  "fields": {
+    "name": "Can add category",
+    "content_type": 7,
+    "codename": "add_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 26,
+  "fields": {
+    "name": "Can change category",
+    "content_type": 7,
+    "codename": "change_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 27,
+  "fields": {
+    "name": "Can delete category",
+    "content_type": 7,
+    "codename": "delete_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 28,
+  "fields": {
+    "name": "Can view category",
+    "content_type": 7,
+    "codename": "view_category"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 29,
+  "fields": {
+    "name": "Can add product",
+    "content_type": 8,
+    "codename": "add_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 30,
+  "fields": {
+    "name": "Can change product",
+    "content_type": 8,
+    "codename": "change_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 31,
+  "fields": {
+    "name": "Can delete product",
+    "content_type": 8,
+    "codename": "delete_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 32,
+  "fields": {
+    "name": "Can view product",
+    "content_type": 8,
+    "codename": "view_product"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 33,
+  "fields": {
+    "name": "Can add order",
+    "content_type": 9,
+    "codename": "add_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 34,
+  "fields": {
+    "name": "Can change order",
+    "content_type": 9,
+    "codename": "change_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 35,
+  "fields": {
+    "name": "Can delete order",
+    "content_type": 9,
+    "codename": "delete_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 36,
+  "fields": {
+    "name": "Can view order",
+    "content_type": 9,
+    "codename": "view_order"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 37,
+  "fields": {
+    "name": "Can add order item",
+    "content_type": 10,
+    "codename": "add_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 38,
+  "fields": {
+    "name": "Can change order item",
+    "content_type": 10,
+    "codename": "change_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 39,
+  "fields": {
+    "name": "Can delete order item",
+    "content_type": 10,
+    "codename": "delete_orderitem"
+  }
+},
+{
+  "model": "auth.permission",
+  "pk": 40,
+  "fields": {
+    "name": "Can view order item",
+    "content_type": 10,
+    "codename": "view_orderitem"
+  }
+},
+{
+  "model": "auth.user",
+  "pk": 1,
+  "fields": {
+    "password": "pbkdf2_sha256$390000$7CSQQQCvZ49ylenNG1Sj8y$YKSLOdu6KNDy6U+RAmYK1NfDgBwa8RHnzCF0Ak+VUSQ=",
+    "last_login": "2023-09-23T02:07:02.236Z",
+    "is_superuser": true,
+    "username": "django",
+    "first_name": "",
+    "last_name": "",
+    "email": "django@mail.com",
+    "is_staff": true,
+    "is_active": true,
+    "date_joined": "2023-09-22T04:49:49.416Z",
+    "groups": [],
+    "user_permissions": []
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 1,
+  "fields": {
+    "app_label": "admin",
+    "model": "logentry"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 2,
+  "fields": {
+    "app_label": "auth",
+    "model": "permission"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 3,
+  "fields": {
+    "app_label": "auth",
+    "model": "group"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 4,
+  "fields": {
+    "app_label": "auth",
+    "model": "user"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 5,
+  "fields": {
+    "app_label": "contenttypes",
+    "model": "contenttype"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 6,
+  "fields": {
+    "app_label": "sessions",
+    "model": "session"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 7,
+  "fields": {
+    "app_label": "shop",
+    "model": "category"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 8,
+  "fields": {
+    "app_label": "shop",
+    "model": "product"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 9,
+  "fields": {
+    "app_label": "orders",
+    "model": "order"
+  }
+},
+{
+  "model": "contenttypes.contenttype",
+  "pk": 10,
+  "fields": {
+    "app_label": "orders",
+    "model": "orderitem"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "81k0zangqxa2bdzyp00kayqxkm58mwrx",
+  "fields": {
+    "session_data": "eyJjYXJ0Ijp7fX0:1qkJzo:THw5QRmVWlzBqSnFy7f45SnL_lTALS1A74vd3_P47TE",
+    "expire_date": "2023-10-08T07:57:40.059Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "aw0tj0q35xxf2fvgxz8plftyomsfmz7a",
+  "fields": {
+    "session_data": ".eJxVjDEOgzAMRe_iuYowxDRh7N4zIDtOCm0FEgkT4u4tEgvrf-_9DQIvBbptv0HPaxn6NcelHxU6QLhswuETpwPom6fXbMI8lWUUcyjmpNk8Z43fx-leDgbOw78mIkeNKDpKlXVq-e5VU00axbdJIzL5qo1oEaW1krzU3DSVigvJegf7DyiyO1s:1qjYqm:tjmiT9jsowoE01YIGSpFfGjdRUERmfz_FXPk6h-LzZc",
+    "expire_date": "2023-10-06T05:37:12.996Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "enl7n9tbh7enqez85u530fh72hmoc250",
+  "fields": {
+    "session_data": ".eJxVjsEOgyAQRP-FsyGgrAWPvfcbzC4L1baRBPRk_PdqwqG9zpt5mV2MuK3TuJWQx5nFILRofjNC_w7LBfiFyzNJn5Y1zySviqy0yEfi8LnX7p9gwjKdawCw0BFrC1EZywZvjjm2wIFcHzloBKf6oI3W1BuKjlrsOsVkfTTOntKUuZ60jfCYVzHsx_EFPvM_hQ:1qkTjN:i7rPqws1Sw-R9nuM9zjSRXK7AWvpjCiKQwjUtQ2Y338",
+    "expire_date": "2023-10-08T18:21:21.824Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "k30eqz8lm5km3zy3q4ojk60r5axwy775",
+  "fields": {
+    "session_data": "eyJjYXJ0Ijp7IjEiOnsicXVhbnRpdHkiOjIsInByaWNlIjoiMTA1Ljk3In19fQ:1qjYKB:4sxuZ1xavTV79mur_N1YePzyIfVv9CqtAfaNQgF0MX8",
+    "expire_date": "2023-10-06T05:03:31.024Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "lez8xqu5i5zysahcg8ckfqewe1rupww5",
+  "fields": {
+    "session_data": "eyJjYXJ0Ijp7IjEiOnsicXVhbnRpdHkiOjUsInByaWNlIjoiMTA1Ljk3In19fQ:1qjYCa:_JtqvpZmV5CkjXDFSOOWsft4FjFdfGJDbI8dc2A-v8A",
+    "expire_date": "2023-10-06T04:55:40.148Z"
+  }
+},
+{
+  "model": "sessions.session",
+  "pk": "uryh6b3bjl8iqo3sa8nc3fuco24kgn43",
+  "fields": {
+    "session_data": "eyJjYXJ0Ijp7fX0:1qjYqy:fua92J-37t67GU9cJf1Tkg-kpsVrL0eRrIKcZ_nLabU",
+    "expire_date": "2023-10-06T05:37:24.429Z"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 1,
+  "fields": {
+    "name": "Motherboard",
+    "slug": "motherboard"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 2,
+  "fields": {
+    "name": "RAM",
+    "slug": "ram"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 3,
+  "fields": {
+    "name": "Case",
+    "slug": "case"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 4,
+  "fields": {
+    "name": "CPU Intel",
+    "slug": "cpu-intel"
+  }
+},
+{
+  "model": "shop.category",
+  "pk": 5,
+  "fields": {
+    "name": "Power Supply",
+    "slug": "power-supply"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 1,
+  "fields": {
+    "category": 1,
+    "name": "ASUS Z790",
+    "slug": "asus-z790",
+    "image": "products/2023/09/21/ASUSZ790.png",
+    "description": "Great quality motherboard perfect for gaming, work office and home.",
+    "price": "105.97",
+    "available": true,
+    "created": "2023-09-22T04:55:13.300Z",
+    "updated": "2023-09-22T04:55:13.300Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 2,
+  "fields": {
+    "category": 1,
+    "name": "ASUS X670",
+    "slug": "asus-x670",
+    "image": "products/2023/09/21/x670.png",
+    "description": "Awesome motherboard",
+    "price": "78.21",
+    "available": true,
+    "created": "2023-09-22T04:59:42.946Z",
+    "updated": "2023-09-22T04:59:42.946Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 3,
+  "fields": {
+    "category": 1,
+    "name": "ASUS X670 prime",
+    "slug": "asus-x670-prime",
+    "image": "products/2023/09/21/x670_prime.png",
+    "description": "Awesome PC",
+    "price": "78.90",
+    "available": true,
+    "created": "2023-09-22T05:00:47.171Z",
+    "updated": "2023-09-22T05:00:47.171Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 4,
+  "fields": {
+    "category": 4,
+    "name": "Intel i5",
+    "slug": "intel-i5",
+    "image": "products/2023/09/21/BX8070811400F_01.png",
+    "description": "CPU",
+    "price": "150.00",
+    "available": true,
+    "created": "2023-09-22T05:29:11.497Z",
+    "updated": "2023-09-22T05:37:12.965Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 5,
+  "fields": {
+    "category": 3,
+    "name": "Case white",
+    "slug": "case-white",
+    "image": "products/2023/09/21/case.png",
+    "description": "Case Economic",
+    "price": "190.00",
+    "available": true,
+    "created": "2023-09-22T05:29:42.914Z",
+    "updated": "2023-09-22T05:29:42.914Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 6,
+  "fields": {
+    "category": 5,
+    "name": "Super Power Supply",
+    "slug": "super-power-supply",
+    "image": "products/2023/09/21/ps.png",
+    "description": "Power Supply 750 W",
+    "price": "300.00",
+    "available": true,
+    "created": "2023-09-22T05:30:19.628Z",
+    "updated": "2023-09-22T05:30:19.628Z"
+  }
+},
+{
+  "model": "shop.product",
+  "pk": 7,
+  "fields": {
+    "category": 2,
+    "name": "Ram Aedeon",
+    "slug": "ram-aedeon",
+    "image": "products/2023/09/21/RAM-PNG-Free-Image_krdzSCr.png",
+    "description": "SDRAM",
+    "price": "450.00",
+    "available": true,
+    "created": "2023-09-22T05:31:15.503Z",
+    "updated": "2023-09-22T05:35:00.889Z"
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 1,
+  "fields": {
+    "first_name": "Meme",
+    "last_name": "Tio",
+    "email": "tio@mail.com",
+    "address": "jfaskldf",
+    "postal_code": "1129",
+    "city": "Ney York",
+    "created": "2023-09-22T05:05:32.276Z",
+    "updated": "2023-09-22T05:05:32.276Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 2,
+  "fields": {
+    "first_name": "Memo",
+    "last_name": "Alfred",
+    "email": "alfred@mail.com",
+    "address": "jfjkdlsa",
+    "postal_code": "1129",
+    "city": "Ney York",
+    "created": "2023-09-22T21:58:56.989Z",
+    "updated": "2023-09-22T21:58:56.989Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 3,
+  "fields": {
+    "first_name": "PEdro",
+    "last_name": "LDKFJ",
+    "email": "alerori1002@gmail.com",
+    "address": "jfdksla",
+    "postal_code": "1129",
+    "city": "Ney York",
+    "created": "2023-09-22T22:01:34.494Z",
+    "updated": "2023-09-22T22:01:34.494Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 4,
+  "fields": {
+    "first_name": "Juancho",
+    "last_name": "Perez",
+    "email": "alerori1002@gmail.com",
+    "address": "fdskajfh",
+    "postal_code": "1129",
+    "city": "Manhattan",
+    "created": "2023-09-22T22:37:30.546Z",
+    "updated": "2023-09-22T22:37:30.546Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 5,
+  "fields": {
+    "first_name": "Juancho",
+    "last_name": "Ramirez",
+    "email": "alerori1002@gmail.com",
+    "address": "fadfsd",
+    "postal_code": "1129",
+    "city": "Boston",
+    "created": "2023-09-23T02:05:10.183Z",
+    "updated": "2023-09-23T02:05:10.183Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 6,
+  "fields": {
+    "first_name": "asdfasdf",
+    "last_name": "sdfasdf",
+    "email": "alerori1002@gmail.com",
+    "address": "fasdfa",
+    "postal_code": "1129",
+    "city": "mandas",
+    "created": "2023-09-24T07:53:14.404Z",
+    "updated": "2023-09-24T07:53:14.404Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 7,
+  "fields": {
+    "first_name": "fasdf",
+    "last_name": "asdfasdf",
+    "email": "alerori1002@gmail.com",
+    "address": "fasdfasd",
+    "postal_code": "1129",
+    "city": "San Franciso",
+    "created": "2023-09-24T07:58:48.996Z",
+    "updated": "2023-09-24T07:58:48.996Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.order",
+  "pk": 8,
+  "fields": {
+    "first_name": "Daniel",
+    "last_name": "Gonzalez",
+    "email": "gonza@mail.com",
+    "address": "los almendros",
+    "postal_code": "1128",
+    "city": "New york",
+    "created": "2023-09-24T18:17:59.185Z",
+    "updated": "2023-09-24T18:17:59.185Z",
+    "paid": false
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 1,
+  "fields": {
+    "order": 1,
+    "product": 1,
+    "price": "105.97",
+    "quantity": 2
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 2,
+  "fields": {
+    "order": 2,
+    "product": 3,
+    "price": "78.90",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 3,
+  "fields": {
+    "order": 3,
+    "product": 2,
+    "price": "78.21",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 4,
+  "fields": {
+    "order": 4,
+    "product": 4,
+    "price": "150.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 5,
+  "fields": {
+    "order": 5,
+    "product": 6,
+    "price": "300.00",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 6,
+  "fields": {
+    "order": 6,
+    "product": 2,
+    "price": "78.21",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 7,
+  "fields": {
+    "order": 7,
+    "product": 3,
+    "price": "78.90",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 8,
+  "fields": {
+    "order": 7,
+    "product": 1,
+    "price": "105.97",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 9,
+  "fields": {
+    "order": 8,
+    "product": 2,
+    "price": "78.21",
+    "quantity": 1
+  }
+},
+{
+  "model": "orders.orderitem",
+  "pk": 10,
+  "fields": {
+    "order": 8,
+    "product": 4,
+    "price": "150.00",
+    "quantity": 1
+  }
+}
+]
