@@ -1,0 +1,20 @@
+{% load static %}
+{% block chatbot %}
+    <div class="container">
+    <button id="chat-button">
+        Abrir chat
+    </button>
+    <div id="chat-container">
+        <div id="chat-output">
+        </div>
+        <input id="user-input" placeholder="Escribe un mensaje..." type="text"/>
+        <button id="send-button">
+            Enviar
+        </button>
+    </div>
+</div>
+<script src="{% static "js/chatbot.js" %}" type="text/javascript">
+</script>
+<script src="{% static "js/toggleChat.js" %}" type="text/javascript">
+</script>
+{% endblock %}
