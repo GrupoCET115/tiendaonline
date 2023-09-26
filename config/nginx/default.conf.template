@@ -7,26 +7,9 @@ upstream uwsgi_app {
 server {
     listen 80;
     listen [::]:80;
-    server_name www.tdnonline.homes tdnonline.homes;
+    server_name www.tdnonline.com tdnonline.com;
     #return 301 https://$host$request_uri;
-    location / { return 301 https://tdnonline.homes$request_uri; }
-}
-
-server {
-    server_name www.tdnonline.homes tdnonline.homes;
-    listen [::]:443 ssl ipv6only=on;
-    listen 443 ssl;
-    ssl_certificate /code/myshop/ssl/tdnonline.homes/fullchain1.pem;
-    ssl_certificate_key /code/myshop/ssl/tdnonline.homes/privkey1.pem;
-    ssl_dhparam /code/myshop/ssl/dh_tdnonline.4096.pem;
-    
-
-    error_log stderr warn;
-    access_log /dev/stdout main;
-    error_log /code/myshop/logs/shop.tdnonline.homes-error.log;
-   # access_log /home/memo/logs/shop.tdnonline.homes-access.log;
-
-
+    #location / { return 301 https://tdnonline.homes$request_uri; }
     location / {
     include /etc/nginx/uwsgi_params;
     uwsgi_pass uwsgi_app;
@@ -40,3 +23,5 @@ server {
         alias /code/myshop/media/;
     }
 }
+
+
