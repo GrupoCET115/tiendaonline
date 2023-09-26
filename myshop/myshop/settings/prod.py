@@ -1,13 +1,13 @@
 from .base import *
 import os
 
-DEBUG = True
+DEBUG = False
 
 ADMINS = [
-    ('Antonio M', 'email@mydomain.com'),
+    ('Alejandro R', 'alememe45@gmail.com'),
 ]
 
-ALLOWED_HOSTS = ['tdnonline.com','www.tdnonline.com']
+ALLOWED_HOSTS = ['tdnonline.homes','www.tdnonline.homes','128.199.6.12']
 
 DATABASES = {
     'default': {
