@@ -1,0 +1,163 @@
+/* CONTENDOR DE TODO EL CHAT */
+#contenedorChat{
+    position: fixed;    
+    bottom: 10px;
+    padding: 0;
+    right: 10px;
+    width: 400px;
+    max-height: 500px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    z-index: 50;
+}
+
+#contenedorChat>header{
+    display: none;
+    background-color: rgb(233, 237, 237);
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+}
+#contenedorChat>header.activo{
+    display: block;
+}
+#contenedorChat>footer{
+    display: none;
+    justify-content: end;
+}
+#contenedorChat>footer.activo{
+    display: flex;
+}
+/* ------------------------------------------- */
+/* CONTENEDOR DE LOS MENSAJES */
+/* CABEZA CONTENDOR DE MENSAJES */
+#cabezaChat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: rgba(156, 209, 236, 0.532);
+    border-radius: 10px 10px 0px 0px;
+    padding: 5px 10px 2px 10px;
+    height: 25px;
+}
+#cabezaChat>h4{
+    margin: 0;
+    padding: 0;
+}
+#cabezaChat>svg{
+    cursor: pointer;
+}
+/* ------------------------------------------- */
+/* CUERPO DEL CONTENDOR DE LOS MENSAJES */
+#cuerpoChat{
+    background-color: rgb(233, 237, 237);
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px 10px 5px 10px;
+    max-height: 350px;
+    overflow-y: auto;
+}
+#seccionMensajes{
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    gap: 5px;
+}
+#cuerpoChat::-webkit-scrollbar{
+    width: 5px;
+    background-color: rgb(233, 237, 237);
+}
+.mensaje{
+    background-color: rgba(73, 243, 243, 0.491);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: fit-content;
+}
+.mensajeUsuario{
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    padding: 5px 10px;
+    width: fit-content;
+    align-self: flex-end;
+}
+/* ------------------------------------------- */
+/* PIE DEL CONTENEDOR DE LOS MENSAJES */
+#pieChat{
+    background-color: rgba(179, 221, 242, 0.34);
+    border-radius: 0px 0px 10px 10px;
+    padding: 5px 10px;
+    height: 25px;
+}
+#formularioChat{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5px;
+}
+#mensaje{
+    width: 300px;
+    height: 100%;
+    border: none;
+    border-radius: 5px;
+    padding: 5px;
+}
+#mensaje:focus{
+    outline: none;
+    box-shadow: 0px 0px 2px 0px rgba(0,0,0,0.75);
+}
+/* ------------------------------------------- */
+
+
+.botonesChat{
+    background-color: azure;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+    padding: 5px 15px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 5px;
+}
+
+.botonesChat:hover{
+    background-color: rgb(32, 71, 71);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    color: white;
+}
+/*--------------------------------------------*/
+#chatBotEscribiendo{
+    display: none;
+    gap: 5px;
+    align-items: center;
+    justify-content: flex-start;
+    padding: 0;
+    margin: 5px 0px 0px 0px;
+}
+#chatBotEscribiendo.activo{
+    display: flex;
+}
+#chatBotEscribiendo>p{
+    margin: 0;
+    padding: 0;
+    font-size: 12px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+}
+.punto{
+    width: 10px;
+    height: 10px;
+    background-color: rgb(0, 0, 0);
+    border-radius: 50%;
+    animation: escribiendo 1s infinite;
+}
+@keyframes escribiendo{
+    0%{
+        background-color: rgb(0, 0, 0);
+    }
+    50%{
+        background-color: rgb(255, 255, 255);
+    }
+    100%{
+        background-color: rgb(0, 0, 0);
+    }
+}
