@@ -30,6 +30,11 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    # Para django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # -----------------------
 ]
 
 MIDDLEWARE = [
@@ -40,6 +45,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -59,6 +66,16 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
 ]
 
 WSGI_APPLICATION = 'myshop.wsgi.application'
@@ -87,7 +104,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-sv'
 
 TIME_ZONE = 'UTC'
 
@@ -130,3 +147,5 @@ STRIPE_SECRET_KEY = 'sk_test_51NtmfBDdsQ8kmcFHupQ0M6FlxcwdV4xtJ0wyJsgLCjmtlOdQ4a
 STRIPE_API_VERSION = '2022-08-01'
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+LOGIN_REDIRECT_URL = '/'
