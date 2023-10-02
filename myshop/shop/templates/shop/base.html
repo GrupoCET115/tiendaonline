@@ -5,7 +5,9 @@
     <meta charset="utf-8" />
     <title>{% block title %}My shop{% endblock %}</title>
     <link href="{% static "css/base.css" %}" rel="stylesheet">
-    <link href="{% static "css/chatbot.css"%}" rel="stylesheet">
+    <link href="{% static "css/chatbot.css" %}" rel="stylesheet">
+    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    
   </head>
   <body>
     <div id="header">
@@ -32,5 +34,7 @@
     </div>
 
     {% include 'chatbot/chatbot.html' %}
+
+    {% include 'footer/footer.html' %}
   </body>
 </html>
