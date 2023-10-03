@@ -1,0 +1,30 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+  Terminos de Venta
+{% endblock %}
+{% block content %}
+ <div class="acordeon-cuerpo">
+        <div class="encabezado">
+            <img src="{% static "img/trato.png" %}" alt="question">
+            <h1>Terminos de Venta</h1>
+        </div>
+        <div class="acordeon">
+            <div class="contenedor">
+                <div class="etiqueta">Politicas De Devolucion</div>
+                <div class="contenido">Si no está satisfecho con su compra, puede devolverla para obtener un reembolso completo o cambiarla por otro producto. Puede devolver un producto hasta por 30 días a partir de la fecha de compra. Cualquier producto que devuelva debe estar en las mismas condiciones en que lo recibió y en el embalaje original. Tenga en cuenta que no reembolsamos el costo de envío original con la devolución.</div>
+                <div class="etiqueta">Garantia</div>
+                <div class="contenido">La garantía de los productos por lo general es de 1 año a partir de la fecha de compra. Si el producto se daña durante el uso normal, puede devolverlo para su reparación o reemplazo. Si el producto se daña por un mal uso, no se puede devolver.</div>
+                <div class="etiqueta">Atención al Cliente</div>
+                <div class="contenido">Nuestro equipo de servicio al cliente está disponible de lunes a viernes de 8:00 am a 4:00 pm., Si tienes alguna pregunta o inquietud, no dudes en contactarnos por correo electrónico o por nuestro chatbox</div>
+                <div class="etiqueta">Precios y Descuentos</div>
+                <div class="contenido">Los precios de los productos se muestran en dólares estadounidenses. Los precios de los productos pueden cambiar en cualquier momento. Los descuentos se aplican a los precios de los productos sin incluir los impuestos y los gastos de envío.</div>
+                <div class="etiqueta">Seguridad de Datos</div>
+                <div class="contenido">Nuestro sitio web utiliza trafico https para proteger sus datos personales. No compartimos su información personal con terceros. No almacenamos su información de pago en nuestro servidor.</div>
+                <div class="etiqueta">Compatibilidad y Asesoramiento</div>
+                <div class="contenido">Nuestro equipo de soporte técnico puede proporcionar asesoramiento sobre la compatibilidad de partes de PC. tambien Te ayudaremos a elegir los componentes adecuados para tus necesidades.</div>
+            </div>
+        </div>
+        </div>
+{% endblock %} 

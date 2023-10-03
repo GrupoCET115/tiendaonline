@@ -27,3 +27,13 @@ def product_detail(request, id, slug):
                   'shop/product/detail.html',
                   {'product': product,
                    'cart_product_form': cart_product_form})
+
+
+def QuestionFrecuentAsk(request):
+    return render(request, 'shop/help/FQA.html')
+
+def SaleTerms(request):
+    return render(request,'shop/help/termsSale.html')
+
+def DisTerms(request):
+    return render(request,'shop/help/disterms.html')

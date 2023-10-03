@@ -1,0 +1,19 @@
+
+{% load static %}
+<div class="container-footer">
+<div class="footer">
+    <h3>My Shop</h3>
+    <p>Segunda etapa tarea ex aula Comercio Electronico CET115</p>
+    <ul class="links">
+        <li><a href="{% url "shop:QuestionFrecuentAsk" %}">Preguntas Frecuentes</a></li>
+        <li><a href="{% url "shop:SaleTerms" %} ">Terminos de Venta</a></li>
+        <li><a href="{% url "shop:DisTerms" %} ">Terminos de Distribucion</a></li>
+    </ul>
+    <div >
+        <p>copyright &copy;2023 Universidad De El Salvador <span>CICLO II</span></p>
+    </div>
+
+</div>
+</div>
+<script src="{% static "js/style.js" %}" type="text/javascript"></script>
+<script src="{% static "js/toggleChat.js" %}" type="text/javascript"></script>
