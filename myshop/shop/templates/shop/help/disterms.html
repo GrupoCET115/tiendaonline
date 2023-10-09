@@ -1,0 +1,32 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block title %}
+  Terminos de Distribucion
+{% endblock %}
+{% block content %}
+ <div class="acordeon-cuerpo">
+        <div class="encabezado">
+            <img src="{% static "img/camion.png" %} " alt="delivery">
+            <h1>Terminos de Distribución</h1>
+        </div>
+        <div class="acordeon">
+            <div class="contenedor">
+                <div class="etiqueta">Áreas de Distribución</div>
+                <div class="contenido">Nuestra tienda ofrece envío a todo el país.</div>
+                <div class="etiqueta">Distribuidores Autorizados</div>
+                <div class="contenido">Nuestra tienda solo vende productos de fabricantes autorizados. Todos los productos que vendemos son nuevos y vienen con la garantía del fabricante.</div>
+                <div class="etiqueta">Envío y Logística</div>
+                <div class="contenido"> Ofrecemos opciones de envío y logística flexibles para garantizar la entrega oportuna de productos. El tiempo de entrega depende de la ubicación del cliente y la disponibilidad de los productos. Por lo general, los pedidos se entregan dentro de los 3-5 días hábiles posteriores a la compra.</div>
+                <div class="etiqueta">Coste de envío</div>
+                <div class="contenido">El costo de envío depende del tamaño y peso del producto, así como de la ubicación del cliente. El costo de envío se calcula en el momento de la compra.</div>
+                <div class="etiqueta">Seguro de envío</div>
+                <div class="contenido">Todos los pedidos se envían con seguro de envío. Si un pedido se pierde o daña durante el envío, se reemplazará sin costo adicional para el cliente.</div>
+                <div class="etiqueta">Seguimiento de envío</div>
+                <div class="contenido">Todos los pedidos se envían con un número de seguimiento. El número de seguimiento se enviará al cliente por correo electrónico una vez que el pedido se haya enviado.</div>
+                <div class="etiqueta">Control de Calidad</div>
+                <div class="contenido">Todos los productos se inspeccionan antes de ser enviados para garantizar que cumplan con los estándares de calidad.</div>
+            </div>
+        </div>
+        </div>
+{% endblock %}
