@@ -15,7 +15,7 @@
             </div>
             <div>
                 {% if user.is_authenticated %}
-                <h2 class="btn">{{user.username}}</h2>
+                <a title="Usuario" class="btn">{{user.username}}</a>
                 <a class="btn" href="{% url 'account_logout' %}">Cerrar Sesión</a>
                 {% else %}
                 <a class="btn" href="{% url 'account_login' %}">Iniciar Sesión</a>

@@ -42,11 +42,6 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook', # Autenticación con Facebook
     'allauth.socialaccount.providers.google',   # Autenticación con Google
     'allauth.socialaccount.providers.github',   # Autenticación con Github
-    
-    # Utilizado para pruebas de https en autenticaciones
-    # se trata de una simulación
-    # https://www.youtube.com/watch?v=gQVfJRorfqQ&t=656s
-    'django_extensions',
 ]
 
 SOCIALACCOUNT_PROVIDERS = {
@@ -112,7 +107,7 @@ ROOT_URLCONF = 'myshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
