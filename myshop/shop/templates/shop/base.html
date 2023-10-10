@@ -1,4 +1,6 @@
 {% load static %}
+{% load i18n %}
+{% load account socialaccount %}
 <!DOCTYPE html>
 <html>
   <head>
@@ -10,22 +12,61 @@
   </head>
   <body>
     <div id="header">
-      <a href="/" class="logo">My shop</a>
+      <div class="d-flex justify-content-between">
+        <div class="col-4">
+            <a href="/" class="logo">My shop</a>
+        </div>
+        <div class="col-8 text-align-end">
+            {% if user.is_authenticated %}
+            <a title="Usuario" class="btn">{{user.username}}</a>
+            <a class="btn" href="{% url 'account_logout' %}">Cerrar Sesión</a>
+            {% else %}
+            <a class="btn" href="{% url 'account_login' %}">Iniciar Sesión</a>
+            <a class="btn" href="{% url 'account_signup' %}">Registrarse</a>            
+            {% endif %}
+        </div>
+      </div>
     </div>
     <div id="subheader">
+      {% if messages %}
+      <div class="d-flex justify-content-between">
+        <div>
+          <strong>{% trans "Mensajes:" %}</strong>
+          <ul>
+            {% for message in messages %}
+            <li>{{message}}</li>
+            {% endfor %}
+          </ul>
+        </div>
+        <div class="cart">
+          {% with total_items=cart|length %}
+            {% if total_items > 0 %}
+              Su carrito:
+              <a href="{% url "cart:cart_detail" %}">
+                {{ total_items }} item{{ total_items|pluralize }},
+                ${{ cart.get_total_price }}
+              </a>
+            {% elif not order %}
+              Su carrito esta vacío
+            {% endif %}
+          {% endwith %}
+        </div>
+      </div>
+      {% else %}
       <div class="cart">
         {% with total_items=cart|length %}
           {% if total_items > 0 %}
-            Your cart:
+            Su carrito:
             <a href="{% url "cart:cart_detail" %}">
               {{ total_items }} item{{ total_items|pluralize }},
               ${{ cart.get_total_price }}
             </a>
           {% elif not order %}
-            Your cart is empty.
+            Su carrito esta vacío
           {% endif %}
         {% endwith %}
       </div>
+      {% endif %}
     </div>
     <div id="content">
       {% block content %}
