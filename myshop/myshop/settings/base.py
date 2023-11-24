@@ -42,7 +42,15 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.facebook', # Autenticación con Facebook
     'allauth.socialaccount.providers.google',   # Autenticación con Google
     'allauth.socialaccount.providers.github',   # Autenticación con Github
+    # ---- Django rest framework
+    'rest_framework',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        ]
+}
 
 SOCIALACCOUNT_PROVIDERS = {
     'google': {

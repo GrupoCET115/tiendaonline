@@ -11,6 +11,7 @@ urlpatterns = [
     path('payment/', include('payment.urls', namespace='payment')),
     path('', include('shop.urls', namespace='shop')),
     path('accounts/', include('allauth.urls')),
+    path('api/', include('api.urls', namespace='api')),
     
 ]
 
