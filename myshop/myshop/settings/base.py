@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-+(@clydi&^06dxoa98e^xudb%cuw)!ju=!j-kxww^!g%jq1&v9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+API_KEY = 'WvwszrNdH78CKBZRcby8sgZh01YBNsJIwQRfvHIjajQ'
 
 ALLOWED_HOSTS = []
 
@@ -30,6 +30,7 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'btcpayment.apps.BtcpaymentConfig',
     # bootstrap
     "crispy_forms",
     "crispy_bootstrap5",
