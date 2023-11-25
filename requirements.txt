@@ -39,3 +39,4 @@ uWSGI==2.0.22
 vine==5.0.0
 wcwidth==0.2.6
 psycopg2>=2.8
+djangorestframework==3.14.0
