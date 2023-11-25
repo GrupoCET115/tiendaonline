@@ -102,3 +102,4 @@
 2023/11/25 20:11:05 [crit] 36#36: *1712 SSL_do_handshake() failed (SSL: error:14201044:SSL routines:tls_choose_sigalg:internal error) while SSL handshaking, client: 198.199.95.88, server: 0.0.0.0:443
 2023/11/25 20:38:12 [error] 36#36: *1739 open() "/code/myshop/static/js/style.js" failed (2: No such file or directory), client: 103.149.26.162, server: www.tdnonline.homes, request: "GET /static/js/style.js HTTP/1.1", host: "128.199.6.12"
 2023/11/25 21:11:31 [crit] 36#36: *1761 SSL_do_handshake() failed (SSL: error:14201044:SSL routines:tls_choose_sigalg:internal error) while SSL handshaking, client: 45.56.86.210, server: 0.0.0.0:443
+2023/11/25 21:36:36 [error] 36#36: *1780 open() "/code/myshop/static/js/style.js" failed (2: No such file or directory), client: 190.150.141.73, server: www.tdnonline.homes, request: "GET /static/js/style.js HTTP/1.1", host: "tdnonline.homes", referrer: "https://tdnonline.homes/"
