@@ -1,4 +1,5 @@
 from django.db import models
+from orders.models import Order
 
 # Create your models here.
 def product_image_path(instance, filename):
@@ -25,7 +26,7 @@ class Product(models.Model):
 class Invoice(models.Model):
     STATUS_CHOICES = ((-1,"Not Started"),(0,'Unconfirmed'), (1,"Partially Confirmed"), (2,"Confirmed"))
 
-    product = models.ForeignKey("Product", on_delete=models.CASCADE)
+    invoce_order = models.OneToOneField(Order, on_delete=models.CASCADE)
     status = models.IntegerField(choices=STATUS_CHOICES, default=-1)
     order_id = models.CharField(max_length=250)
     address = models.CharField(max_length=250, blank=True, null=True)

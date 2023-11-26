@@ -15,14 +15,14 @@
   <body>
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <div class="container-fluid">
-          <a class="navbar-brand" href="#">Blockonomics Payment API Demo</a>
+          <a class="navbar-brand" href="#">Blockonomics Payment API</a>
           <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
           </button>
           <div class="collapse navbar-collapse" id="navbarNav">
             <ul class="navbar-nav">
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="{% url 'payments_btc:home' %}">Products</a>
+                
               </li>
               
             </ul>
@@ -44,12 +44,26 @@
             <div class="col-md-6 col-sm-12">
                 <h4 class="subtitle">Order Details: </h4>
                 <table class="table">
-                <tbody>
+                  <thead>
+                      <th>Producto</th>
+                      <th>Cantidad</th>
+                      <th>Precio Unitario</th>
+                      <th>Total</th>
+                  </thead>
+                  <tbody>
+                    {% for item in order.items.all %}
                     <tr>
-                    <td>HD DSLR Image- Himalaya</td>
-                    <td>x 1</td>
-                    <td>${{value}}</td>
+                      <td>{{item.product}}</td>
+                      <td>x {{item.quantity}}</td>
+                      <td> {{item.price}}</td>
+                      <td> {{item.get_cost}}</td>
                     </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+                <table class="table">
+                <tbody>
+                   
                     <tr>
                     <td colspan="2" align=left><strong>Total:</strong></td>
                     <td><strong>${{value}}</strong></td>
@@ -61,11 +75,7 @@
                     
                 </tbody>
                 </table>
-                {% if path %}
-                <div>
-                    <img id="my_image" src='{{path}}'>
-                </div>
-                {% endif %}
+<!-- poner algun mensaje de confirmacion -->
             </div>
         </div>
       </div>

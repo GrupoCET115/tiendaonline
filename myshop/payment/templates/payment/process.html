@@ -33,7 +33,11 @@
 </tbody>
 </table>
 <form action="{% url "payment:process" %}" method="post">
-<input type="submit" value="Pay now">
+<input type="submit" value="Pay with card">
 {% csrf_token %}
 </form>
+<form action="{% url "payments_btc:create_payment" %}" method="post">
+    <input type="submit" value="Pay with bitcoin">
+    {% csrf_token %}
+    </form>
 {% endblock %}

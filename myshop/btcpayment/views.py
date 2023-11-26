@@ -1,4 +1,4 @@
-from django.shortcuts import render,reverse
+from django.shortcuts import render,reverse,get_object_or_404
 from django.http import HttpResponse,HttpResponseRedirect
 from django.conf import settings
 
@@ -9,6 +9,9 @@ import uuid
 import os
 
 from .models import *
+from orders.models import Order
+
+
 # Create your views here.
 
 def home(request):
@@ -20,18 +23,26 @@ def exchanged_rate(amount):
     url = "https://www.blockonomics.co/api/price?currency=USD"
     r = requests.get(url)
     response = r.json()
-    return amount/response['price']
+    return float(amount)/response['price']
 
 def track_invoice(request, pk):
     invoice_id = pk
     invoice = Invoice.objects.get(id=invoice_id)
+    #Obtener Orden
+    order_id_orders = request.session.get('order_id', None)
+    order = get_object_or_404(Order, id=order_id_orders)
+    #Hacer la suma de Items de compra
+    total = 0
+    for item in order.items.all():
+        total += item.get_cost()
     data = {
             'order_id':invoice.order_id,
             'bits':invoice.btcvalue/1e8,
-            'value':invoice.product.price,
+            'value':total,
             'addr': invoice.address,
             'status':Invoice.STATUS_CHOICES[invoice.status+1][1],
             'invoice_status': invoice.status,
+            'order': invoice.invoce_order,
         }
     if (invoice.received):
         data['paid'] =  invoice.received/1e8
@@ -42,21 +53,33 @@ def track_invoice(request, pk):
 
     return render(request,'invoice.html',context=data)
 
-def create_payment(request, pk):
-    
-    product_id = pk
-    product = Product.objects.get(id=product_id)
+def create_payment(request):
+    #Obtener Orden
+    order_id_orders = request.session.get('order_id', None)
+    order = get_object_or_404(Order, id=order_id_orders)
+    #Hacer la suma de Items de compra
+    total = 0
+    for item in order.items.all():
+        total += item.get_cost()
+               
+    ###############################################
+    # product_id = pk
+    # product = Product.objects.get(id=product_id)
+    ###############################################
+    #Solicitar dirrecion de pago
     url = 'https://www.blockonomics.co/api/new_address?match_account=6rdMge'
     headers = {'Authorization': "Bearer " + settings.API_KEY}
     print("api key ",settings.API_KEY)
     r = requests.post(url, headers=headers)
     print(r.json())
+
     if r.status_code == 200:
         address = r.json()['address']
-        bits = exchanged_rate(product.price)
+        #change
+        bits = exchanged_rate(total)
         order_id = uuid.uuid1()
         invoice = Invoice.objects.create(order_id=order_id,
-                                address=address,btcvalue=bits*1e8, product=product)
+                                address=address,btcvalue=bits*1e8, invoce_order=order)
         return HttpResponseRedirect(reverse('payments_btc:track_payment', kwargs={'pk':invoice.id}))
     else:
         print(r.status_code, r.text)

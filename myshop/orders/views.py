@@ -6,7 +6,7 @@ from .forms import OrderCreateForm
 from .tasks import order_created
 from cart.cart import Cart
 
-@login_required
+#@login_required
 def order_create(request):
     cart = Cart(request)
     if request.method == 'POST':
