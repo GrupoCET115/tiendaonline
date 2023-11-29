@@ -47,7 +47,7 @@ def autenticar_usuario(request):
     
     admin_email = "alememe45@gmail.com"
     subject = "Codigo de autenticacion"
-
+    contexto = {}
     try:
         #user_object = User.objects.get(pk=user_id)
         user_object = User.objects.get(pk=int(request.session.get('id_user')))
@@ -85,7 +85,7 @@ def autenticar_usuario(request):
         messages.error(request,"Usuario no registado")
         return redirect("usuarios:register")
 
-    return render(request,'registration/autenticar.html',{})
+    return render(request,'registration/autenticar.html',contexto)
 
 def recuperar_contra(request):
     contexto = {}
