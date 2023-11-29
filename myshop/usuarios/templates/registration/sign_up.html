@@ -37,7 +37,7 @@
         {% endfor %}
         {% endif %}
         <h5 class="text-center fw-bold">Regístrate</h5>
-        <h6>Si ya te has registrado, puedes ingresar desde aquí: <a href="{%url 'login'%}" class="mr-4">Iniciar Sesión</a></h6>
+        <h6>Si ya te has registrado, puedes ingresar desde aquí: <a href="{%url 'usuarios:login'%}" class="mr-4">Iniciar Sesión</a></h6>
         <form action="" method="POST">
             {% csrf_token %}
             <div class="row">
