@@ -45,6 +45,7 @@ INSTALLED_APPS = [
     'allauth.socialaccount.providers.github',   # Autenticación con Github
     # ---- Django rest framework
     'rest_framework',
+    'usuarios',
 ]
 
 REST_FRAMEWORK = {
@@ -198,7 +199,7 @@ CART_SESSION_ID = 'cart'
 # Email server configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'alememe45@gmail.com'
-EMAIL_HOST_PASSWORD = 'pawb cdkh ehmt llcr'
+EMAIL_HOST_PASSWORD = 'rdfn otpk vcmg cbcf'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -211,3 +212,6 @@ STRIPE_API_VERSION = '2022-08-01'
 STATIC_ROOT = BASE_DIR / 'static'
 
 LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+
