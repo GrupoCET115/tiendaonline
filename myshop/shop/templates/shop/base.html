@@ -6,25 +6,32 @@
   <head>
     <meta charset="utf-8" />
     <title>{% block title %}My shop{% endblock %}</title>
-    <link href="{% static "css/base.css" %}" rel="stylesheet">
-    <link href="{% static "css/chatbot.css"%}" rel="stylesheet">
-    <link href="{% static "css/style.css" %}" rel="stylesheet">
+    <!-- <link href="{% static "css/base.css" %}" rel="stylesheet"> -->
+    <link href="{% static "css/estilosChat.css"%}" rel="stylesheet">
+    <link href="{% static "css/carrito.css"%}" rel="stylesheet">
+    <link href="{% static "css/principal.css"%}" rel="stylesheet">
+    <!-- <link href="{% static "css/style.css" %}" rel="stylesheet"> -->    
+    {% block estilos_css %}
+    {% endblock %}
   </head>
   <body>
-    <div id="header">
-      <div class="d-flex justify-content-between">
-        <div class="col-4">
-            <a href="/" class="logo">My shop</a>
-        </div>
-        <div class="col-8 text-align-end">
-            {% if user.is_authenticated %}
-            <a title="Usuario" class="btn">{{user.username}}</a>
-            <a class="btn" href="{% url 'logout' %}">Cerrar Sesión</a>
-            {% else %}
-            <a class="btn" href="{% url 'usuarios:login' %}">Iniciar Sesión</a>
-            <a class="btn" href="{% url 'usuarios:register' %}">Registrarse</a>            
-            {% endif %}
-        </div>
+    <div id="cabeza">
+      <div>
+          <a href="/" id="logo">
+            <img src="{% static "img/descarga.png" %}" alt="My shop">
+          </a>
+      </div>
+      <div>
+        <input type="text" placeholder="Ingrese su búsqueda" class="buscador">
+      </div>
+      <div>
+          {% if user.is_authenticated %}
+          <span title="Usuario" class="btn">{{user.username}}</span>
+          <a class="btn" href="{% url 'logout' %}">Cerrar Sesión</a>
+          {% else %}
+          <a class="btn" href="{% url 'usuarios:login' %}">Iniciar Sesión</a>
+          <a class="btn" href="{% url 'usuarios:register' %}">Registrarse</a>            
+          {% endif %}
       </div>
     </div>
     <div id="subheader">
@@ -68,10 +75,35 @@
       </div>
       {% endif %}
     </div>
-    <div id="content">
-      {% block content %}
-      {% endblock %}
+    <div id="menu">
+      <div id="menuCategorias">
+        <header>
+          <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-baseline-density-medium" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M4 20h16" /><path d="M4 12h16" /><path d="M4 4h16" /></svg>
+          <span>Categorías</span>
+        </header>
+        <section>
+          <ul>
+            <li {% if not category %}class="selected"{% endif %}>
+              <a href="{% url "shop:product_list" %}">Todos</a>
+            </li>
+            {% for c in categories %}
+              <li {% if category.slug == c.slug %}class="selected"{% endif %}>
+                <a href="{{ c.get_absolute_url }}">{{ c.name }}</a>
+              </li>
+            {% endfor %}
+          </ul>
+        </section>
+      </div>
+      <div>
+        <a href="/">Inicio</a>
+      </div>
     </div>
+    <main id="contenedorContenido">
+      <div id="content">
+        {% block content %}
+        {% endblock %}
+      </div>
+    </main>
 
     {% include 'chatbot/chatbot.html' %}
     {% include 'footer/footer.html' %}

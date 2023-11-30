@@ -1,0 +1,103 @@
+{% extends "shop/base.html" %}
+{% load static %}
+
+{% block estilos_css %}
+    <link href="{% static "css/inicio.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block content %}
+
+<section id="bannerPrincipal">
+    <div class="contenedorImagen">
+        <div>
+            <p>Haz tu compra tecnológica más fácil</p>
+            <span class="titulo">Hazla en Compufacil</span>
+            <button class="btn">Ver más..</button>
+        </div>
+    </div>
+    <aside>
+        <p>Obtén US $10 de descuento en tu compra al compartir la pagina en redes sociales</p>
+        <button class="btn">Compartir Ahora</button>
+    </aside>
+</section>
+
+<section id="ofertas">
+    <div class="itemOferta">
+        <h3>Ofertas del mes</h3>
+        <span>Finaliza en</span>
+        <footer>
+            <div>
+                <span>04</span>
+                <span>Días</span>
+            </div>
+            <div>
+                <span>12</span>
+                <span>Horas</span>
+            </div>
+            <div>
+                <span>30</span>
+                <span>Min</span>
+            </div>
+            <div>
+                <span>50</span>
+                <span>Seg</span>
+            </div>
+        </footer>
+    </div>
+    {% for product in products|slice:":4" %}
+        <div class="itemOferta">
+            <a class="opcion" href="{{ product.get_absolute_url }}">
+                <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
+            </a>
+            <a class="opcion" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            <br>
+            ${{ product.price }}
+        </div>
+    {% endfor %}
+</section>
+
+<section id="baner2">
+    <div class="contenedorImagen">
+        <div>
+            <p>Lo mejor para los PC's Lovers</p>
+        </div>
+    </div>
+    {% for product in products|slice:"1:7" %}
+        <div class="itemBaner2">
+            <a class="nombreBaner2" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+            <div>
+                <p>Desde USD ${{ product.price }}</p>
+                <a class="opcion" href="{{ product.get_absolute_url }}">
+                    <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
+                </a>
+            </div>
+        </div>
+    {% endfor %}
+</section>
+
+<section id="comentarios">
+    <div>
+        <h3>
+            Sabemos que tis opiniones son tan únicas como tú.
+            <br>
+            Compártenos tus pensamientos y sé parte de la convesación.
+            <br>
+            Tu Feedback es muy importante para nosotros.
+        </h3>
+    </div>
+    <div>
+        <h4>Enviar comentarios</h4>
+        <textarea placeholder="Escribe aquí tus comentarios" cols="30" rows="5"></textarea>
+        <button class="btn">Enviar</button>
+    </div>
+</section>
+
+<section id="suscribirse">
+    <h4>Mantente informado</h4>
+    <p>Suscríbase a nuestro boletín para recibir ofertas de descuentos anticipados, actualizaciones e información sobre nuevos productos.</p>
+    <form action="">
+        <input type="email" placeholder="Correo electrónico">
+        <button class="btn">Suscribirse</button>
+    </form>
+</section>
+{% endblock %}
