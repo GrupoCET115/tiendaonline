@@ -1,0 +1,2 @@
+2023/12/01 21:57:13 [error] 34#34: *9 open() "/code/myshop/static/js/style.js" failed (2: No such file or directory), client: 190.150.141.73, server: www.compufacil.store, request: "GET /static/js/style.js HTTP/1.1", host: "compufacil.store", referrer: "https://compufacil.store/"
+2023/12/01 21:57:55 [error] 34#34: *17 open() "/code/myshop/static/js/style.js" failed (2: No such file or directory), client: 190.87.173.119, server: www.compufacil.store, request: "GET /static/js/style.js HTTP/1.1", host: "compufacil.store", referrer: "https://compufacil.store/"
