@@ -71,3 +71,6 @@ class Cart:
 
     def get_total_price(self):
         return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values())
+    
+    def total_mas_envio(self):
+        return sum(Decimal(item['price']) * item['quantity'] for item in self.cart.values()) + Decimal(5.5)
