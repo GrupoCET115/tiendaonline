@@ -5,6 +5,6 @@ socket.onmessage = function(event){
   console.log("Response  status"+ parseInt(response.status));
   //This condition ensures that we reload only when we get a
   //new payment status and don't go into a loop
-  if (parseInt(response.status) == 2){window.location.href = 'https://tdnonline.homes/payment/completed/';}
+  if (parseInt(response.status) == 2){window.location.href = 'https://compufacil.store/payment/completed/';}
     // setTimeout(function(){window.location.reload() }, 1000);
 };
