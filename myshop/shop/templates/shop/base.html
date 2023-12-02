@@ -32,6 +32,9 @@
 
     <!-- Cargar la librería Feather Icons para iconos -->
     <script src="https://unpkg.com/feather-icons"></script>
+
+    <!-- Cargar la fuente de íconos Material Icons Sharp desde Google Fonts -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
   </head>
   <body>
     <div id="cabeza">
@@ -39,20 +42,65 @@
           <a href="/" id="logo">
             <img src="{% static "img/descarga.png" %}" alt="Compufacil">
           </a>
+          {% comment %} <i data-feather="shopping-cart"></i> {% endcomment %}
       </div>
+
       <div>
         <input type="text" placeholder="Ingrese su búsqueda" class="buscador">
       </div>
+
       <div>
-          {% if user.is_authenticated %}
-          <span title="Usuario" class="btn">{{user.username}}</span>
-          <a class="btn" href="{% url 'logout' %}">Cerrar Sesión</a>
-          {% else %}
-          <a class="btn" href="{% url 'usuarios:login' %}">Iniciar Sesión</a>
-          <a class="btn" href="{% url 'usuarios:register' %}">Registrarse</a>            
-          {% endif %}
+          <div id="user-info">
+            <header>
+              <i class='bx bx-user-circle'></i>
+              <div>
+                  <h4>¡Hola!</h4>
+                  {% if user.is_authenticated %}
+                  <span>{{user.username}}</span>
+                  {% else %}
+                  <span>Entrar</span>         
+                  {% endif %}
+              </div>
+            </header>
+            <section>
+              {% if user.is_authenticated %}
+              <ul>
+                <li>
+                <a href="{% url 'logout' %}">Cerrar sesión</a>
+                </li>
+              </ul>
+              {% else %}
+              <ul>
+                <li>
+                  <a href="{% url 'usuarios:login' %}">Inicia sesión</a>
+                </li>
+                <li>
+                  <a href="{% url 'usuarios:register' %}">Únete a nosotros</a>
+                </li>
+              </ul>
+              {% endif %}            
+            </section>
+          </div>
+          <div style="position: relative;">
+            <a id="cart-shop" href="{% url "cart:cart_detail" %}">
+              <i style="font-size: 3rem;" class='bx bx-cart-alt'></i>
+              {% with total_items=cart|length %}
+                {% if total_items > 0 %}
+                  <span class="units-cart">
+                    {{ total_items }} 
+                  </span>
+                {% elif not order %}
+                  <span class="units-cart">
+                    0
+                  </span>
+                {% endif %}
+              {% endwith %}
+            </a>            
+          </div>
+
       </div>
     </div>
+
     <div id="subheader">
       {% if messages %}
       <div class="d-flex justify-content-between">
@@ -94,6 +142,7 @@
       </div>
       {% endif %}
     </div>
+
     <div id="menu">
       <div id="menuCategorias">
         <header>
@@ -117,6 +166,7 @@
         <a href="/">Inicio</a>
       </div>
     </div>
+
     <main id="contenedorContenido">
       <div id="content">
         {% block content %}
@@ -128,4 +178,8 @@
     {% include 'footer/footer.html' %}
     <script src="{% static "js/app.js" %}" type="text/javascript"></script>
   </body>
+  <script>
+    // Reemplaza los iconos
+    feather.replace();
+  </script>
 </html>
