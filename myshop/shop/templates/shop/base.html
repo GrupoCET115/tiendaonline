@@ -2,23 +2,42 @@
 {% load i18n %}
 {% load account socialaccount %}
 <!DOCTYPE html>
-<html>
+<html lang="es">
   <head>
-    <meta charset="utf-8" />
-    <title>{% block title %}My shop{% endblock %}</title>
-    <!-- <link href="{% static "css/base.css" %}" rel="stylesheet"> -->
+    <meta charset="utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!--Titulo de cada pagina servida-->
+    <title>{% block title %}Compufacil{% endblock %}</title>
+
+    <!--Incluir metadata de la pagina-->
+    {% block metadata %}
+    {% endblock  %}
+
+    <!--Cargar estilo css para chatbot-->
     <link href="{% static "css/estilosChat.css"%}" rel="stylesheet">
+
+    <!--Cargar estilo css para carrito de compras-->
     <link href="{% static "css/carrito.css"%}" rel="stylesheet">
+
+    <!--Cargar estilo css principal-->
     <link href="{% static "css/principal.css"%}" rel="stylesheet">
-    <!-- <link href="{% static "css/style.css" %}" rel="stylesheet"> -->    
+
+    <!--Cargar estilo css de paginas adicionales-->
     {% block estilos_css %}
     {% endblock %}
+
+    <!--Cargar la librería de Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Cargar la librería Feather Icons para iconos -->
+    <script src="https://unpkg.com/feather-icons"></script>
   </head>
   <body>
     <div id="cabeza">
       <div>
           <a href="/" id="logo">
-            <img src="{% static "img/descarga.png" %}" alt="My shop">
+            <img src="{% static "img/descarga.png" %}" alt="Compufacil">
           </a>
       </div>
       <div>
