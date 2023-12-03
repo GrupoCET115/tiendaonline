@@ -12,7 +12,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent.parent
 SECRET_KEY = 'django-insecure-+(@clydi&^06dxoa98e^xudb%cuw)!ju=!j-kxww^!g%jq1&v9'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-
+API_KEY = 'WvwszrNdH78CKBZRcby8sgZh01YBNsJIwQRfvHIjajQ'
 
 ALLOWED_HOSTS = []
 
@@ -30,7 +30,75 @@ INSTALLED_APPS = [
     'cart.apps.CartConfig',
     'orders.apps.OrdersConfig',
     'payment.apps.PaymentConfig',
+    'btcpayment.apps.BtcpaymentConfig',
+    # bootstrap
+    "crispy_forms",
+    "crispy_bootstrap5",
+    # -----------------------
+    # Para django-allauth
+    'allauth',
+    'allauth.account',
+    'allauth.socialaccount',
+    # -----------------------
+    'allauth.socialaccount.providers.facebook', # Autenticación con Facebook
+    'allauth.socialaccount.providers.google',   # Autenticación con Google
+    'allauth.socialaccount.providers.github',   # Autenticación con Github
+    # ---- Django rest framework
+    'rest_framework',
+    'usuarios',
 ]
+
+REST_FRAMEWORK = {
+    'DEFAULT_PERMISSION_CLASSES': [
+        #'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
+        ]
+}
+
+SOCIALACCOUNT_PROVIDERS = {
+    'google': {
+        'SCOPE': [
+            'profile',
+            'email',
+        ],
+        'AUTH_PARAMS': {
+            'access_type': 'online',
+        },
+        'OAUTH_PKCE_ENABLED': True,
+    },
+    'github': {
+        'SCOPE': [
+            'user',
+            'repo',
+            'read:org',
+        ],
+    },
+    'facebook': {
+        'METHOD': 'oauth2',  # Set to 'js_sdk' to use the Facebook connect SDK
+        #'SDK_URL': '//connect.facebook.net/{locale}/sdk.js',
+        'SCOPE': ['email', 'public_profile'],
+        'AUTH_PARAMS': {'auth_type': 'reauthenticate'},
+        'INIT_PARAMS': {'cookie': True},
+        'FIELDS': [
+            'id',
+            'first_name',
+            'last_name',
+            'middle_name',
+            'name',
+            'name_format',
+            'picture',
+            'short_name'
+        ],
+        'EXCHANGE_TOKEN': True,
+        #'LOCALE_FUNC': 'path.to.callable',
+        'VERIFIED_EMAIL': False,
+        'VERSION': 'v13.0',
+        'GRAPH_API_URL': 'https://graph.facebook.com/v13.0',
+    }
+}
+
+CRISPY_ALLOWED_TEMPLATE_PACKS = "bootstrap5"
+
+CRISPY_TEMPLATE_PACK = "bootstrap5"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -40,6 +108,8 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    # Add the account middleware:
+    "allauth.account.middleware.AccountMiddleware",
 ]
 
 ROOT_URLCONF = 'myshop.urls'
@@ -47,7 +117,7 @@ ROOT_URLCONF = 'myshop.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [],
+        'DIRS': [BASE_DIR / 'templates'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -59,6 +129,16 @@ TEMPLATES = [
             ],
         },
     },
+]
+
+AUTHENTICATION_BACKENDS = [
+    
+    # Needed to login by username in Django admin, regardless of `allauth`
+    'django.contrib.auth.backends.ModelBackend',
+
+    # `allauth` specific authentication methods, such as login by email
+    'allauth.account.auth_backends.AuthenticationBackend',
+    
 ]
 
 WSGI_APPLICATION = 'myshop.wsgi.application'
@@ -87,7 +167,7 @@ AUTH_PASSWORD_VALIDATORS = [
 # Internationalization
 # https://docs.djangoproject.com/en/4.1/topics/i18n/
 
-LANGUAGE_CODE = 'en-us'
+LANGUAGE_CODE = 'es-sv'
 
 TIME_ZONE = 'UTC'
 
@@ -119,7 +199,7 @@ CART_SESSION_ID = 'cart'
 # Email server configuration
 EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_HOST_USER = 'alememe45@gmail.com'
-EMAIL_HOST_PASSWORD = 'pawb cdkh ehmt llcr'
+EMAIL_HOST_PASSWORD = 'rdfn otpk vcmg cbcf'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 
@@ -130,3 +210,8 @@ STRIPE_SECRET_KEY = 'sk_test_51NtmfBDdsQ8kmcFHupQ0M6FlxcwdV4xtJ0wyJsgLCjmtlOdQ4a
 STRIPE_API_VERSION = '2022-08-01'
 
 STATIC_ROOT = BASE_DIR / 'static'
+
+LOGIN_REDIRECT_URL = '/'
+LOGOUT_REDIRECT_URL = '/'
+
+

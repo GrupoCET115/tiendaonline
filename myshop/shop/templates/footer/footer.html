@@ -1,0 +1,24 @@
+
+{% load static %}
+<div class="container-footer">
+    <footer>
+        <main>
+            <div class="colFooter">
+                <a href="/">
+                    <img src="{% static "img/descarga.png" %}" alt="My shop">
+                </a>
+                  <p>La satisfacción de nuestros clientes es nuestra prioridad. Explora las experiencias de nuestros clientes y descubre por qué elegirnos es una desición acertada.</p>
+            </div>
+            <ul class="links colFooter">
+                <li><a href="{% url "shop:QuestionFrecuentAsk" %}">Preguntas Frecuentes</a></li>
+                <li><a href="{% url "shop:SaleTerms" %} ">Terminos de Venta</a></li>
+                <li><a href="{% url "shop:DisTerms" %} ">Terminos de Distribucion</a></li>
+            </ul>
+        </main>
+        <footer>
+            <p>copyright &copy;2023 Universidad De El Salvador <span>CICLO II</span></p>
+        </footer>
+    </footer>
+</div>
+<script src="{% static "js/style.js" %}" type="text/javascript"></script>
+<script src="{% static "js/toggleChat.js" %}" type="text/javascript"></script>

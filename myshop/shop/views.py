@@ -23,7 +23,25 @@ def product_detail(request, id, slug):
                                 slug=slug,
                                 available=True)
     cart_product_form = CartAddProductForm()
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
     return render(request,
                   'shop/product/detail.html',
                   {'product': product,
-                   'cart_product_form': cart_product_form})
+                   'cart_product_form': cart_product_form
+                   ,'categories': categories, 'products': products})
+
+
+def QuestionFrecuentAsk(request):
+    return render(request, 'shop/help/FQA.html')
+
+def SaleTerms(request):
+    return render(request,'shop/help/termsSale.html')
+
+def DisTerms(request):
+    return render(request,'shop/help/disterms.html')
+
+def Inicio(request):
+    categories = Category.objects.all()
+    products = Product.objects.filter(available=True)
+    return render(request,'shop/inicio.html', {'categories': categories, 'products': products})

@@ -1,0 +1,81 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Iniciar sesión</title>
+    <link rel="stylesheet" href="{% static "css/login.css" %}">
+    <link rel="stylesheet" href="{% static "css/bootstrap.css" %}">
+
+    <!--Cargar la librería de Boxicons-->
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
+
+    <!-- Cargar la librería Font Awesome para iconos -->
+    <script data-search-pseudo-elements defer src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/js/all.min.js" crossorigin="anonymous"></script>
+
+</head>
+
+<body class="d-flex justify-content-center align-items-center">
+    <div class="shadow p-4 mb-5 col-lg-4 col-8 bg-body-tertiary rounded-4 border">
+        <h5 class="text-center fw-bold">Iniciar Sesión</h5>
+        <h6>Si aún no te has registrado, puedes hacerlo desde aquí: <a href="{%url 'usuarios:register'%}" class="mr-4">Regístrate</a></h6>
+        <form action="" method="POST">
+            {% csrf_token %}
+            <div class="mb-4">
+                <label for="exampleInputEmail1" class="form-label">Nombre de usuario</label>
+
+                <input type="text" class="form-control form-control-user rounded-5" id="exampleInputEmail"
+                    aria-describedby="emailHelp" placeholder="Ingrese su nombre de usuario" name="username">
+            </div>
+            <div class="mb-4 mr-4">
+                <label for="exampleInputPassword1" class="form-label">Contraseña</label>
+                <div class="form-group" method="post" action="{% url 'login' %}">
+                    <input type="password" class="form-control form-control-user rounded-5" id="exampleInputPassword"
+                        placeholder="Contraseña" name="password">
+                </div>
+                <h6><a href="{%url 'usuarios:enviar_correo_recuperar_contra'%}" class="mr-4">¿Has olvidado tu contraseña?</a></h6>
+            </div>
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary rounded-5">
+                    <i class='bx bx-log-in'></i>
+                    Iniciar Sesión
+                </button>
+            </div>
+        </form>
+        {% if messages %}
+        {% for message in messages %}
+
+        <div class="container-xl mt-4">
+            <div class="alert alert-primary alert-dismissible fade show" role="alert">
+                <i class='bx bxs-bell-ring bx-tada'></i>
+                <strong>Notificación</strong> 
+                <p>{{message}}</p>
+                <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+            </div>
+        </div>
+
+        {% endfor %}
+        {% endif %}
+
+    </div>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js"
+        integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r"
+        crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.min.js"
+        integrity="sha384-BBtl+eGJRgqQAUMxJ7pMwbEyER4l1g+O15P+16Ep7Q9Q+zqX6gSbd85u4mG4QzX+"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

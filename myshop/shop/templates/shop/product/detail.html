@@ -1,25 +1,74 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
+{% block estilos_css %}
+    <link href="{% static "css/detalle.css" %}" rel="stylesheet">
+{% endblock %}
+
 {% block title %}
   {{ product.name }}
 {% endblock %}
 {% block content %}
+  <section id="cabezaCategoria">
+    <p>Productos</p>
+    <p>></p>
+    <p>{{ product.category }}</p>
+    <p>></p>
+    <p>{{ product.name }}</p>
+  </section>
+
   <div class="product-detail">
     <img src="{% if product.image %}{{ product.image.url }}{% else %}
     {% static "img/no_image.png" %}{% endif %}">
-    <h1>{{ product.name }}</h1>
-    <h2>
-      <a href="{{ product.category.get_absolute_url }}">
-        {{ product.category }}
-      </a>
-    </h2>
-    <p class="price">${{ product.price }}</p>
+    <div>
+      <div class="chequsito">
+        <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
+        <p>Disponible</p>
+      </div>
+      <h1>{{ product.name }}</h1>
+      <footer>
+        <div>
+          <p>Precio</p>
+          <p class="price">${{ product.price }}</p>
+        </div>
+        <div>
+          <p>Tipo</p>
+          <a href="{{ product.category.get_absolute_url }}">
+            {{ product.category }}
+          </a>
+        </div>
+      </footer>
+    </div>
     <form action="{% url "cart:cart_add" product.id %}" method="post">
       {{ cart_product_form }}
       {% csrf_token %}
-      <input type="submit" value="Add to cart">
+      <input type="submit" class="btn" value="Add to cart">
+      <footer>
+        <button type="button" class="btn">Compartir en redes sociales</button>
+      </footer>
     </form>
-    {{ product.description|linebreaks }}
   </div>
+
+  <section id="descripcion">
+    <div>
+      <h3>Descripción</h3>
+    </div>
+    <p>{{ product.description }}</p>
+  </section>
+
+  <section id="productosRelacionados">
+    <h2>Productos relacionados</h2>
+    <div>
+      {% for product in products|slice:":4" %}
+          <div class="item">
+              <a class="opcion" href="{{ product.get_absolute_url }}">
+                  <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
+              </a>
+              <a class="opcion" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
+              <br>
+              ${{ product.price }}
+          </div>
+      {% endfor %}
+    </div>
+  </section>    
 {% endblock %}

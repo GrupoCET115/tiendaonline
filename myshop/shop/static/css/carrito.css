@@ -1,0 +1,68 @@
+#carritoContenedor{
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    gap: 15px;
+}
+#carritoContenedor select{
+    width: 100%;
+    padding: 5px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 5px;
+}
+.itemCarrito{
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+    border: 1px solid #ccc;
+    padding: 10px;
+    background-color: rgb(255, 255, 255);
+}
+.itemDescripcion{
+    color: #6c6969;
+}
+.itemCarrito img{
+    max-width: 100px;
+    height: auto;
+}
+.itemCarrito > div{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}
+.itemCarrito > div:nth-child(2){
+    flex: 1;
+}
+.btnEliminarItem{
+    background-color: transparent;
+    color: #e10b0b;
+    border: 1px solid #ff0000;
+    padding: 5px 10px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.btnEliminarItem:hover{
+    background-color: #ff0000;
+    color: #fff;
+}
+#resumenCarrito{
+    background-color: rgb(255, 255, 255);
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#resumenCarrito div{
+    display: flex;
+    justify-content: space-between;
+    padding: 5px 0;
+}
+#resumenCarrito > hr{
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+}
+#resumenCarrito > div:last-child{
+    border: 1px solid #ccc;
+    margin-bottom: 5px;
+    padding: 15px 5px;
+    border-radius: 5px;
+}

@@ -10,6 +10,12 @@ urlpatterns = [
     path('orders/', include('orders.urls', namespace='orders')),
     path('payment/', include('payment.urls', namespace='payment')),
     path('', include('shop.urls', namespace='shop')),
+    path('accounts/', include('allauth.urls')),
+    path('api/', include('api.urls', namespace='api')),
+    path('btcpayment/',include('btcpayment.urls',namespace='btcpayment')),
+    #Login
+    path('usuario/', include('django.contrib.auth.urls')),
+    path('usuario/',include('usuarios.urls')),
     
 ]
 
