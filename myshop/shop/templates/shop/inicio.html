@@ -1,8 +1,18 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
+{% block metadata %}
+    <link rel="icon" type="image/x-icon" href="{% static 'img/compufacil.png'%}"/>
+    <meta name="description" content="La satisfacción de nuestros clientes es nuestra prioridad"/>
+    <meta name="ROBOTS" content="ALL">
+{% endblock %}
+
 {% block estilos_css %}
     <link href="{% static "css/inicio.css" %}" rel="stylesheet">
+{% endblock %}
+
+{% block title %}
+  Inicio | Compufacil
 {% endblock %}
 
 {% block content %}

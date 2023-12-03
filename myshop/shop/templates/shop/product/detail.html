@@ -1,13 +1,40 @@
 {% extends "shop/base.html" %}
 {% load static %}
 
+{% load social_share %}
+
+{% block metadata %}
+    <link rel="icon" type="image/x-icon" href="{% if product.image %}{{ product.image.url }}{% else %}
+    {% static "img/no_image.png" %}{% endif %}"/>
+    <meta name="description" content="{{ product.description }}"/>
+
+    <!--Metadata para compartir en Facebook y Whatsapp-->
+    <meta property="og:url" content="{{product.get_absolute_url}}"/>
+    <meta property="og:type" content="{{ product.category }}"/>
+    <meta property="og:title" content="{{ product.name }}"/>
+    <meta property="og:description" content="{{ product.description }}"/>
+    <meta property="og:image" content="{% if product.image %}{{ product.image.url }}{% else %}
+    {% static "img/no_image.png" %}{% endif %}" />
+
+    <!--Metadata para compartir en Twitter-->
+    <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content="compufacil" />
+    <meta name="twitter:creator" content="compufacil" />
+    <meta name="twitter:title" content="{{ product.name }}" />
+    <meta name="twitter:description" content="{{ product.description }}" />
+    <meta name="twitter:image" content="{% if product.image %}{{ product.image.url }}{% else %}
+    {% static "img/no_image.png" %}{% endif %}" />
+
+{% endblock %}
+
 {% block estilos_css %}
     <link href="{% static "css/detalle.css" %}" rel="stylesheet">
 {% endblock %}
 
 {% block title %}
-  {{ product.name }}
+  {{ product.name }} | Compufacil
 {% endblock %}
+
 {% block content %}
   <section id="cabezaCategoria">
     <p>Productos</p>
@@ -42,9 +69,12 @@
     <form action="{% url "cart:cart_add" product.id %}" method="post">
       {{ cart_product_form }}
       {% csrf_token %}
-      <input type="submit" class="btn" value="Add to cart">
-      <footer>
-        <button type="button" class="btn">Compartir en redes sociales</button>
+      <input type="submit" class="btn" value="Añadir al carrito">
+      <footer id="socials-share">
+        Compartir:
+        {% post_to_facebook product.get_absolute_url "<i class='bx bxl-facebook-circle'></i>" "btn-social-share-facebook" %}
+        {% post_to_whatsapp product.get_absolute_url "<i class='bx bxl-whatsapp'></i>" "btn-social-share-whatsapp" %}
+        {% post_to_twitter "🔥 ¡Nueva oferta en Compufacil! 🔥 Echa un vistazo a nuestro producto, el {{ product.name }}." product.get_absolute_url "<i class='bx bxl-twitter'></i>" "btn-social-share-twitter" %}
       </footer>
     </form>
   </div>

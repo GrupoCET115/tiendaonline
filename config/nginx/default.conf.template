@@ -7,23 +7,23 @@ upstream uwsgi_app {
 server {
     listen 80;
     listen [::]:80;
-    server_name www.tdnonline.homes tdnonline.homes;
+    server_name www.compufacil.store compufacil.store;
     #return 301 https://$host$request_uri;
-    location / { return 301 https://tdnonline.homes$request_uri; }
+    location / { return 301 https://compufacil.store$request_uri; }
 }
 
 server {
-    server_name www.tdnonline.homes tdnonline.homes;
+    server_name www.compufacil.store compufacil.store;
     listen [::]:443 ssl ipv6only=on;
     listen 443 ssl;
-    ssl_certificate /code/myshop/ssl/tdnonline.homes/fullchain1.pem;
-    ssl_certificate_key /code/myshop/ssl/tdnonline.homes/privkey1.pem;
-    ssl_dhparam /code/myshop/ssl/dh_tdnonline.4096.pem;
+    ssl_certificate /code/myshop/ssl/compufacil.store/fullchain1.pem;
+    ssl_certificate_key /code/myshop/ssl/compufacil.store/privkey1.pem;
+    ssl_dhparam /code/myshop/ssl/dh_compufacil.4096.pem;
     
 
     error_log stderr warn;
     access_log /dev/stdout main;
-    error_log /code/myshop/logs/shop.tdnonline.homes-error.log;
+    error_log /code/myshop/logs/shop.compufacil.store-error.log;
    # access_log /home/memo/logs/shop.tdnonline.homes-access.log;
 
 
@@ -39,4 +39,5 @@ server {
     location /media/ {
         alias /code/myshop/media/;
     }
+location = /favicon.ico { log_not_found off; access_log off;}
 }

@@ -58,7 +58,33 @@
     display: flex;
     justify-content: center;
 }
-
+#socials-share{
+    align-items: center;
+}
+.btn-social-share-facebook{
+    font-size: 1.8rem;
+    color: #ccc;
+}
+.btn-social-share-facebook:hover{
+    color: #4267B2;
+    transition: color 1s ease;
+}
+.btn-social-share-whatsapp{
+    font-size: 2rem;
+    color: #ccc;
+}
+.btn-social-share-whatsapp:hover{
+    color: #25D366;
+    transition: color 1s ease;
+}
+.btn-social-share-twitter{
+    font-size: 2rem;
+    color: #ccc;
+}
+.btn-social-share-twitter:hover{
+    color: #1DA1F2;
+    transition: color 1s ease;
+}
 #descripcion{
     display: flex;
     flex-direction: column;

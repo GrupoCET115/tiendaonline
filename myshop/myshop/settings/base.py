@@ -46,6 +46,8 @@ INSTALLED_APPS = [
     # ---- Django rest framework
     'rest_framework',
     'usuarios',
+    # Compartir en redes sociales
+    'django_social_share',
 ]
 
 REST_FRAMEWORK = {

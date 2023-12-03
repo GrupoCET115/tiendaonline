@@ -7,7 +7,7 @@ ADMINS = [
     ('Alejandro R', 'alememe45@gmail.com'),
 ]
 
-ALLOWED_HOSTS = ['tdnonline.homes','www.tdnonline.homes','128.199.6.12']
+ALLOWED_HOSTS = ['www.compufacil.store','compufacil.store','128.199.6.12']
 
 DATABASES = {
     'default': {
