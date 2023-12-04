@@ -1,5 +1,6 @@
 from django.db import models
 from django.urls import reverse
+from django.conf import settings
 
 class Category(models.Model):
     name = models.CharField(max_length=200)
@@ -51,3 +52,18 @@ class Product(models.Model):
     def get_absolute_url(self):
         return reverse('shop:product_detail',
                        args=[self.id, self.slug])
+
+class FeedbackShop(models.Model):
+    usuario =  models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    mensaje = models.CharField(max_length=250)
+    creado = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        verbose_name = 'feedbackShop'
+        verbose_name_plural = 'feedbacksShop'
+
+    def __str__(self):
+        return self.usuario.username
+
+    def get_absolute_url(self):
+        return reverse('shop:inicio')
