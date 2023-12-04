@@ -36,22 +36,10 @@
         <h3>Ofertas del mes</h3>
         <span>Finaliza en</span>
         <footer>
-            <div>
-                <span>04</span>
-                <span>Días</span>
-            </div>
-            <div>
-                <span>12</span>
-                <span>Horas</span>
-            </div>
-            <div>
-                <span>30</span>
-                <span>Min</span>
-            </div>
-            <div>
-                <span>50</span>
-                <span>Seg</span>
-            </div>
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
         </footer>
     </div>
     {% for product in products|slice:":4" %}
@@ -110,4 +98,27 @@
         <button class="btn">Suscribirse</button>
     </form>
 </section>
+<script>
+    function updateClock() {
+        var now = new Date();
+
+        var lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+        var timeRemaining = Math.floor((lastDayOfMonth - now) / 1000);
+
+        var days = Math.floor(timeRemaining / (24 * 3600));
+        var hours = Math.floor((timeRemaining % (24 * 3600)) / 3600);
+        var minutes = Math.floor((timeRemaining % 3600) / 60);
+        var seconds = timeRemaining % 60;
+
+        document.getElementById('days').innerText = days + ' Días';
+        document.getElementById('hours').innerText = ('0' + hours).slice(-2) + ' Horas';
+        document.getElementById('minutes').innerText = ('0' + minutes).slice(-2) + ' Min';
+        document.getElementById('seconds').innerText = ('0' + seconds).slice(-2) + ' Seg';
+    }
+
+    setInterval(updateClock, 1000);
+
+    updateClock();
+</script>
 {% endblock %}
