@@ -77,17 +77,94 @@
     <div>
         <h3>
             Sabemos que tus opiniones son tan únicas como tú.
-            <br>
+            
             Compártenos tus pensamientos y sé parte de la convesación.
-            <br>
-            Tu Feedback es muy importante para nosotros.
+
+            ¡Tu Feedback es muy importante para nosotros!
         </h3>
     </div>
-    <div>
+    <div class="chat_feedback">
         <h4>Enviar comentarios</h4>
-        <textarea placeholder="Escribe aquí tus comentarios" cols="30" rows="5"></textarea>
-        <button class="btn">Enviar</button>
+        <div id="chat">
+            {% for feedback_shop in feedbackshop %}
+            <div class="message{% if request.user == feedback_shop.usuario %}_me {% endif %}">
+                <strong>{% if request.user == feedback_shop.usuario %} Tú {% else %} {{feedback_shop.usuario}} {% endif %}</strong>
+                <span class="date_feedback">{{feedback_shop.creado}}</span><br>
+                {{feedback_shop.mensaje}}
+            </div>
+            {% endfor %}
+            <div style="display: none;"></div>           
+        </div>
+        <textarea id="chat-message-input" placeholder="Escribe aquí tus comentarios" rows="5" required></textarea>
+        <input id="chat-message-submit" class="btn" type="submit" value="Enviar">
+
+        {% block include_js %}
+            {{ request.user.username|json_script:"username" }}
+        {% endblock %}
+
+        {% block domready %}
+            <script>
+                const username = JSON.parse(document.getElementById('username').textContent);
+                const url = 'ws://' + window.location.host + '/ws';
+                const chatSocket = new WebSocket(url);
+                const chatfoco = document.getElementById('chat');
+                chatfoco.scrollTop = chatfoco.scrollHeight;
+                
+                chatSocket.onmessage = function(event) {
+                    const data = JSON.parse(event.data);
+                    const chat = document.getElementById('chat');
+                    const dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
+                    const datetime = new Date(data.datetime).toLocaleString('es', dateOptions);
+                    const isMe = data.user == username;
+                    const source = isMe ? 'me' : '';
+                    const name = isMe ? 'Tú' : data.user;
+                    
+                    chat.innerHTML += '<div class="message_' + source + '">' +
+                                    '<strong>' + name + '</strong> ' +
+                                    '<span class="date_feedback">' + datetime + '</span><br>' +
+                                    data.message + '</div>';
+                    chat.innerHTML += '<div style="display: none;"></div>';
+                    chat.scrollTop = chat.scrollHeight;
+                    
+                };
+                    
+                chatSocket.onclose = function(event) {
+                    console.error('Chat socket closed unexpectedly');
+                };
+
+                const input = document.getElementById('chat-message-input');
+                const chat = document.getElementById('chat');
+                const submitButton = document.getElementById('chat-message-submit');
+
+                submitButton.addEventListener('click', function(event) {
+                    const message = input.value;
+                    if(message) {
+                        // send message in JSON format
+                        chatSocket.send(JSON.stringify({'message': message}));
+                        // clear input
+                        input.innerHTML = '';
+                        input.value = '';
+                        chat.focus();
+                    }
+                });
+
+                input.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                    // cancel the default action, if needed
+                    event.preventDefault();
+                    // trigger click event on button
+                    submitButton.click();
+                    }
+                });
+                    
+                input.focus();
+
+            </script>
+        {% endblock %}
+        
+        
     </div>
+    
 </section>
 
 <section id="suscribirse">

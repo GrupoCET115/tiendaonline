@@ -1,6 +1,6 @@
 from django.shortcuts import render, get_object_or_404
 from cart.forms import CartAddProductForm
-from .models import Category, Product
+from .models import Category, Product, FeedbackShop
 
 
 def product_list(request, category_slug=None):
@@ -44,4 +44,5 @@ def DisTerms(request):
 def Inicio(request):
     categories = Category.objects.all()
     products = Product.objects.filter(available=True)
-    return render(request,'shop/inicio.html', {'categories': categories, 'products': products})
+    feedbackshop = FeedbackShop.objects.all()
+    return render(request,'shop/inicio.html', {'categories': categories, 'products': products, 'feedbackshop': feedbackshop})
