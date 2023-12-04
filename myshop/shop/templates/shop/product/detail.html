@@ -69,7 +69,7 @@
     <form action="{% url "cart:cart_add" product.id %}" method="post">
       {{ cart_product_form }}
       {% csrf_token %}
-      <input type="submit" class="btn" value="Add to cart">
+      <input type="submit" class="btn" value="Añadir al carrito">
       <footer id="socials-share">
         Compartir:
         {% post_to_facebook product.get_absolute_url "<i class='bx bxl-facebook-circle'></i>" "btn-social-share-facebook" %}

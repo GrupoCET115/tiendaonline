@@ -36,22 +36,10 @@
         <h3>Ofertas del mes</h3>
         <span>Finaliza en</span>
         <footer>
-            <div>
-                <span>04</span>
-                <span>Días</span>
-            </div>
-            <div>
-                <span>12</span>
-                <span>Horas</span>
-            </div>
-            <div>
-                <span>30</span>
-                <span>Min</span>
-            </div>
-            <div>
-                <span>50</span>
-                <span>Seg</span>
-            </div>
+            <div id="days"></div>
+            <div id="hours"></div>
+            <div id="minutes"></div>
+            <div id="seconds"></div>
         </footer>
     </div>
     {% for product in products|slice:":4" %}
@@ -88,18 +76,95 @@
 <section id="comentarios">
     <div>
         <h3>
-            Sabemos que tis opiniones son tan únicas como tú.
-            <br>
+            Sabemos que tus opiniones son tan únicas como tú.
+            
             Compártenos tus pensamientos y sé parte de la convesación.
-            <br>
-            Tu Feedback es muy importante para nosotros.
+
+            ¡Tu Feedback es muy importante para nosotros!
         </h3>
     </div>
-    <div>
+    <div class="chat_feedback">
         <h4>Enviar comentarios</h4>
-        <textarea placeholder="Escribe aquí tus comentarios" cols="30" rows="5"></textarea>
-        <button class="btn">Enviar</button>
+        <div id="chat">
+            {% for feedback_shop in feedbackshop %}
+            <div class="message{% if request.user == feedback_shop.usuario %}_me {% endif %}">
+                <strong>{% if request.user == feedback_shop.usuario %} Tú {% else %} {{feedback_shop.usuario}} {% endif %}</strong>
+                <span class="date_feedback">{{feedback_shop.creado}}</span><br>
+                {{feedback_shop.mensaje}}
+            </div>
+            {% endfor %}
+            <div style="display: none;"></div>           
+        </div>
+        <textarea id="chat-message-input" placeholder="Escribe aquí tus comentarios" rows="5" required></textarea>
+        <input id="chat-message-submit" class="btn" type="submit" value="Enviar">
+
+        {% block include_js %}
+            {{ request.user.username|json_script:"username" }}
+        {% endblock %}
+
+        {% block domready %}
+            <script>
+                const username = JSON.parse(document.getElementById('username').textContent);
+                const url = 'ws://' + window.location.host + '/ws';
+                const chatSocket = new WebSocket(url);
+                const chatfoco = document.getElementById('chat');
+                chatfoco.scrollTop = chatfoco.scrollHeight;
+                
+                chatSocket.onmessage = function(event) {
+                    const data = JSON.parse(event.data);
+                    const chat = document.getElementById('chat');
+                    const dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
+                    const datetime = new Date(data.datetime).toLocaleString('es', dateOptions);
+                    const isMe = data.user == username;
+                    const source = isMe ? 'me' : '';
+                    const name = isMe ? 'Tú' : data.user;
+                    
+                    chat.innerHTML += '<div class="message_' + source + '">' +
+                                    '<strong>' + name + '</strong> ' +
+                                    '<span class="date_feedback">' + datetime + '</span><br>' +
+                                    data.message + '</div>';
+                    chat.innerHTML += '<div style="display: none;"></div>';
+                    chat.scrollTop = chat.scrollHeight;
+                    
+                };
+                    
+                chatSocket.onclose = function(event) {
+                    console.error('Chat socket closed unexpectedly');
+                };
+
+                const input = document.getElementById('chat-message-input');
+                const chat = document.getElementById('chat');
+                const submitButton = document.getElementById('chat-message-submit');
+
+                submitButton.addEventListener('click', function(event) {
+                    const message = input.value;
+                    if(message) {
+                        // send message in JSON format
+                        chatSocket.send(JSON.stringify({'message': message}));
+                        // clear input
+                        input.innerHTML = '';
+                        input.value = '';
+                        chat.focus();
+                    }
+                });
+
+                input.addEventListener('keypress', function(event) {
+                    if (event.key === 'Enter') {
+                    // cancel the default action, if needed
+                    event.preventDefault();
+                    // trigger click event on button
+                    submitButton.click();
+                    }
+                });
+                    
+                input.focus();
+
+            </script>
+        {% endblock %}
+        
+        
     </div>
+    
 </section>
 
 <section id="suscribirse">
@@ -110,4 +175,27 @@
         <button class="btn">Suscribirse</button>
     </form>
 </section>
+<script>
+    function updateClock() {
+        var now = new Date();
+
+        var lastDayOfMonth = new Date(now.getFullYear(), now.getMonth() + 1, 0);
+
+        var timeRemaining = Math.floor((lastDayOfMonth - now) / 1000);
+
+        var days = Math.floor(timeRemaining / (24 * 3600));
+        var hours = Math.floor((timeRemaining % (24 * 3600)) / 3600);
+        var minutes = Math.floor((timeRemaining % 3600) / 60);
+        var seconds = timeRemaining % 60;
+
+        document.getElementById('days').innerText = days + ' Días';
+        document.getElementById('hours').innerText = ('0' + hours).slice(-2) + ' Horas';
+        document.getElementById('minutes').innerText = ('0' + minutes).slice(-2) + ' Min';
+        document.getElementById('seconds').innerText = ('0' + seconds).slice(-2) + ' Seg';
+    }
+
+    setInterval(updateClock, 1000);
+
+    updateClock();
+</script>
 {% endblock %}

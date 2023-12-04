@@ -331,7 +331,10 @@ form div.field {
     border-radius:4px;
 }
 
-/* Autenticación */
+.box-btc{
+    margin-top: 5px;
+}
+
 .col-4 {
     flex: 0 0 auto;
     width: 33.33333333%;
@@ -487,3 +490,4 @@ form div.field {
       width: 100%;
     }
   }
+

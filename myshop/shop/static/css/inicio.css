@@ -215,6 +215,30 @@
     border-radius: 5px;
     padding: 10px;
 }
+#chat {
+    height: 100px; /* Altura máxima */
+    width: 400px; /* Ancho máximo */
+    overflow-y: scroll; /* Barra de desplazamiento vertical */
+    background-color: #f2f2f2; /* Color de fondo */
+    border-radius: 5px; /* Bordes redondeados */
+    padding: 10px; /* Espacio interior */
+}
+.message {
+    margin-bottom: 10px; /* Espacio entre mensajes */
+    padding: 10px; /* Espacio interior */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #fff; /* Color de fondo */
+} 
+.message_me {
+    margin-bottom: 10px; /* Espacio entre mensajes */
+    padding: 10px; /* Espacio interior */
+    border-radius: 5px; /* Bordes redondeados */
+    background-color: #1d4ed8; /* Color de fondo para mis mensajes */
+    color: white; /* Color de texto para mis mensajes */
+}
+.date_feedback{
+    font-size: 0.8rem;
+}
 /* //////////////////////////////////////// */
 /* PARA LA SECCION DE SUSCRIBIRSE */
 /* //////////////////////////////////////// */
@@ -259,5 +283,11 @@
     }
     #comentarios h3{
         font-size: 1rem;
+    }
+    .chat_feedback{
+        width: 100%;
+    }
+    #chat{
+        width: 100%;
     }
 }

@@ -7,3 +7,11 @@ class OrderCreateForm(forms.ModelForm):
         model = Order
         fields = ['first_name', 'last_name', 'email', 'address',
                   'postal_code', 'city']
+        labels = {
+            'first_name': 'Nombres',
+            'last_name': 'Apellidos',
+            'email': 'Correo Electrónico',
+            'address': 'Dirección',
+            'postal_code': 'Código Postal',
+            'city': 'Ciudad',
+        }
