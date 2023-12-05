@@ -1,0 +1,148 @@
+#cabezaCategoria{
+    display: flex;
+    gap: 10px;
+}
+#cabezaCategoria > p{
+    color: rgb(91, 90, 88);
+}
+.product-detail{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+.product-detail img{
+    max-width: 320px;
+    height: auto;
+    transition: all 0.5s ease;
+}
+.product-detail img:hover{
+    transform: scale(1.5);
+}
+.chequsito{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: rgb(57, 163, 57);
+}
+.product-detail > div > h1{
+    margin-bottom: 15px;
+}
+.product-detail > div > footer > div{
+    display: flex;
+    gap: 10px;
+    justify-content: space-between;
+}
+.product-detail > div > footer > div:first-child{
+    border-bottom: 1px solid #ccc;
+    width: 100%;
+    padding-bottom: 10px;
+    margin-bottom: 10px;
+}
+.product-detail > form{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    padding: 10px;
+}
+.product-detail > form > select{
+    border: 1px solid #ccc;
+    padding: 5px;
+}
+.product-detail > form > footer{
+    border-top: 1px solid #ccc;
+    padding-top: 10px;
+    display: flex;
+    justify-content: center;
+}
+#socials-share{
+    align-items: center;
+}
+.btn-social-share-facebook{
+    font-size: 1.8rem;
+    color: #ccc;
+}
+.btn-social-share-facebook:hover{
+    color: #4267B2;
+    transition: color 1s ease;
+}
+.btn-social-share-whatsapp{
+    font-size: 2rem;
+    color: #ccc;
+}
+.btn-social-share-whatsapp:hover{
+    color: #25D366;
+    transition: color 1s ease;
+}
+.btn-social-share-twitter{
+    font-size: 2rem;
+    color: #ccc;
+}
+.btn-social-share-twitter:hover{
+    color: #1DA1F2;
+    transition: color 1s ease;
+}
+#descripcion{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#descripcion div{
+    border-bottom: 1px solid #ccc;
+    padding: 10px;
+}
+#descripcion h3{
+    color: rgb(59, 87, 170);
+}
+#descripcion p{
+    padding: 0px 10px 10px 10px;
+}
+/* //////////////////////////////////////////// */
+#productosRelacionados{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    padding: 10px;
+    border-radius: 5px;
+}
+#productosRelacionados > div{
+    flex: 1;
+    display: flex;
+    overflow-x: auto;
+}
+.item{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+}
+.item:hover{
+    background-color: rgb(245, 245, 245);
+}
+.item img{
+    max-width: 120px;
+    height: auto;
+}
+/* //////////////////////////////////////////// */  
+/* //////////////////////////////////////////// */
+@media screen and (max-width: 866px){
+    .product-detail{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+    }
+    .product-detail img{
+        grid-column: span 2;
+        margin: auto;
+    }
+}

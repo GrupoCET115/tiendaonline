@@ -33,12 +33,12 @@
   </aside>
 
   <main>
-    <header>
+    <header style="border-radius: 5px;">
       <p>{{ products|length }} productos en "{% if category %}{{ category.name }}{% else %}Todos los productos{% endif %}"</p>
     </header>
     <section>
       {% for product in products %}
-      <div class="item">
+      <div style="border-radius: 5px;" class="item">
         <a class="opcion" href="{{ product.get_absolute_url }}">
           <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
         </a>
@@ -46,7 +46,7 @@
           <a class="opcion" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
           <p>${{ product.price }}</p>
           <p>{{ product.description }}</p>
-          <a class="btn" href="{{ product.get_absolute_url }}">Ver detalles</a>
+          <a style="width: 120px;" class="btn" href="{{ product.get_absolute_url }}">Ver detalles</a>
         </div>
       </div>
       {% endfor %}

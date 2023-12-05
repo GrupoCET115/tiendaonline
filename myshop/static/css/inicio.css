@@ -1,0 +1,263 @@
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* PARA EL BANER */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+#bannerPrincipal{
+    display: grid;
+    grid-template-columns: 1fr 250px;
+    grid-template-rows: 1fr;
+    gap: 20px;
+    padding: 20px;
+    background-color: rgb(255, 255, 255);
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.contenedorImagen{
+    display: flex;
+    justify-content: start;
+    align-items: center;
+    background-image: url('../img/baner.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    height: 275px;
+}
+.contenedorImagen > div{
+    padding: 10px 20px;
+    display: flex;
+    flex-direction: column;
+}
+.contenedorImagen > div > p{
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: 100;
+}
+.contenedorImagen > div > span{
+    color: #fff;
+    font-size: 1.7rem;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+.contenedorImagen > div > button{
+    max-width: 125px;
+}
+#bannerPrincipal > aside{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 20px;
+    background-color: rgb(40, 43, 43);
+    border-radius: 5px;
+    color: #fff;
+    padding: 10px 20px;
+}
+#bannerPrincipal > aside > p{
+    font-size: 1.1rem;
+    font-weight: 100;
+}
+#bannerPrincipal > aside > button{
+    max-width: 125px;
+}
+/* //////////////////////////////////////////// */
+/* PARA LOS PRODUCTOS */
+/* //////////////////////////////////////////// */
+#ofertas{
+    display: flex;
+    background-color: rgb(255, 255, 255);
+    border-radius: 5px;
+    overflow-x: auto;
+    height: 250px;
+}
+.itemOferta:first-child{
+    flex: 1.5;
+    flex-basis: 250px;
+    flex-shrink: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+.itemOferta:first-child{
+    gap: 0;
+}
+.itemOferta:first-child > span{
+    color: rgb(159, 163, 163);
+    margin-bottom: 10px;
+}
+.itemOferta:first-child > footer{
+    display: flex;
+    gap: 10px;
+}
+.itemOferta:first-child > footer > div{
+    display: flex;
+    flex-basis: 50px;
+    flex-grow: 0;
+    flex-shrink: 0;
+    flex-direction: column;
+    align-items: center;
+    gap: 5px;
+    background-color: rgb(94, 94, 94);
+    border-radius: 5px;
+    padding: 5px;
+    color: #fff;
+}
+.itemOferta:first-child > footer > div > span:first-child{
+    font-weight: bold;
+}
+.itemOferta{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    padding: 10px;
+    border: 1px solid #ccc;
+}
+.itemOferta:hover{
+    background-color: rgb(245, 245, 245);
+}
+.itemOferta img{
+    max-width: 120px;
+    height: auto;
+}
+/* //////////////////////////////////////////// */
+/* PARA EL BANER 2 */
+/* //////////////////////////////////////////// */
+#baner2{
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+    background-color: rgb(255, 255, 255);
+}
+#baner2 .contenedorImagen{
+    background-image: url('../img/baner2.jpeg');
+    grid-row: span 2;
+    height: 100%;
+    font-weight: bold;
+}
+#baner2 .contenedorImagen p{
+    font-weight: bold;
+}
+.itemBaner2{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    gap: 10px;
+    overflow: hidden;
+}
+.itemBaner2:hover{
+    background-color: rgb(245, 245, 245);
+}
+.itemBaner2 img{
+    max-width: 100px;
+    height: auto;
+}
+.itemBaner2 div{
+    display: flex;
+    align-items: center;
+    gap: 5px;
+}
+.itemBaner2 > div > p{
+    color: rgb(90, 93, 93);
+}
+.nombreBaner2{
+    font-size: 1.1rem;
+    color: rgb(40, 43, 43);
+}
+/* //////////////////////////////////////// */
+/* PARA LA SECCION DE COMENTARIOS */
+/* //////////////////////////////////////// */
+#comentarios{
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    gap: 20px;
+    background: linear-gradient(to right, rgb(21, 130, 219), rgba(96, 174, 239, 0.4));
+    border-radius: 5px;
+    padding: 20px;
+    height: 350px;
+}
+#comentarios::after{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 100%;
+    background-image: url('../img/comentarios.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    opacity: 0.5;
+}
+#comentarios h3{
+    color: #fff;
+    font-size: 1.5rem;
+}
+#comentarios div:last-child{
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    background-color: #fff;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+#comentarios textarea{
+    resize: none;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+/* //////////////////////////////////////// */
+/* PARA LA SECCION DE SUSCRIBIRSE */
+/* //////////////////////////////////////// */
+#suscribirse{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    padding: 20px;
+}
+#suscribirse form{
+    display: flex;
+    gap: 10px;
+    margin: 10px 0;
+    align-items: center;
+}
+#suscribirse form input{
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    padding: 10px;
+}
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+/* //////////////////////////////////////////////////////////////////////////////////////////////////////////////// */
+@media screen and (max-width: 866px){
+    #bannerPrincipal{
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 150px;
+    }
+    #baner2{
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr 1fr 1fr;
+    }
+    #baner2 .contenedorImagen{
+        grid-row: 1;
+        grid-column: span 2;
+    }
+    #comentarios{
+        flex-direction: column;
+        height: auto;
+    }
+    #comentarios h3{
+        font-size: 1rem;
+    }
+}
