@@ -52,19 +52,29 @@ formChat.addEventListener('submit', (e) => {
     e.preventDefault()
     const mensaje = formChat.querySelector('input').value
     if (mensaje.trim().length > 0) {
+        // recuperamos los mensajes del chatbot
+        let mensajesChatBot = document.querySelectorAll('.mensaje')
+        mensajesChatBot = Array.from(mensajesChatBot).map((mensaje, inidice) => {
+            if(inidice === 0) return mensaje.innerText
+            let parrafos = mensaje.querySelectorAll('p')
+            parrafos = Array.from(parrafos).map(parrafo => parrafo.innerText)
+            return parrafos.join('. ')
+        })
+        // recuperamos los mensajes del usuario
+        let mensajesUsuario = document.querySelectorAll('.mensajeUsuario')
+        mensajesUsuario = Array.from(mensajesUsuario).map(mensaje => mensaje.innerText)
         const nuevoMensaje = document.createElement('div')
         nuevoMensaje.classList.add('mensajeUsuario')
         nuevoMensaje.innerText = mensaje
         seccionMensajes.appendChild(nuevoMensaje)
         escribiendo.classList.add('activo')
         cuerpoChat.scrollTo(0, cuerpoChat.scrollHeight)
-        fetch('http://localhost:3001/chat', {
+        fetch('https://api-chat-deploy-dev-kecs.2.us-1.fl0.io/chat', {
             method: 'POST',
-            credentials: 'include',
             headers: {
                 'Content-Type': 'application/json'
             },
-            body: JSON.stringify({ mensaje: mensaje })
+            body: JSON.stringify({ mensaje: mensaje, mensajesChatBot: mensajesChatBot, mensajesUsuario: mensajesUsuario })
         }).then(res => res.json())
             .then(res => {
                 let tieneBoton = res.respuesta.includes('*PATH:')
