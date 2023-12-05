@@ -48,8 +48,6 @@ INSTALLED_APPS = [
     'usuarios',
     # Compartir en redes sociales
     'django_social_share',
-    # Feedback
-    'channels',
 ]
 
 REST_FRAMEWORK = {
@@ -147,7 +145,6 @@ AUTHENTICATION_BACKENDS = [
 
 WSGI_APPLICATION = 'myshop.wsgi.application'
 
-ASGI_APPLICATION = "myshop.asgi.application"
 
 # Password validation
 # https://docs.djangoproject.com/en/4.1/ref/settings/#auth-password-validators

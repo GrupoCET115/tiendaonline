@@ -97,6 +97,7 @@
         </div>
 
         {% if user.is_authenticated %}
+        {% csrf_token %}
         <textarea id="chat-message-input" placeholder="Escribe aquí tus comentarios" rows="5" required></textarea>
         <input id="chat-message-submit" class="btn" type="submit" value="Enviar">
         {% else %}
@@ -104,68 +105,51 @@
         <a class="btn" href="{% url 'usuarios:login' %}">¡Se parte de nuestro feedback!</a>        
         {% endif %}
 
-        {% block include_js %}
-            {{ request.user.username|json_script:"username" }}
-        {% endblock %}
-
         {% block domready %}
             <script>
-                const username = JSON.parse(document.getElementById('username').textContent);
-                const url = 'ws://' + window.location.host + '/ws';
-                const chatSocket = new WebSocket(url);
                 const chatfoco = document.getElementById('chat');
                 chatfoco.scrollTop = chatfoco.scrollHeight;
-                
-                chatSocket.onmessage = function(event) {
-                    const data = JSON.parse(event.data);
-                    const chat = document.getElementById('chat');
-                    const dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
-                    const datetime = new Date(data.datetime).toLocaleString('es', dateOptions);
-                    const isMe = data.user == username;
-                    const source = isMe ? 'me' : '';
-                    const name = isMe ? 'Tú' : data.user;
-                    
-                    chat.innerHTML += '<div class="message_' + source + '">' +
-                                    '<strong>' + name + '</strong> ' +
-                                    '<span class="date_feedback">' + datetime + '</span><br>' +
-                                    data.message + '</div>';
-                    chat.innerHTML += '<div style="display: none;"></div>';
-                    chat.scrollTop = chat.scrollHeight;
-                    
-                };
-                    
-                chatSocket.onclose = function(event) {
-                    console.error('Chat socket closed unexpectedly');
-                };
 
-                const input = document.getElementById('chat-message-input');
-                const chat = document.getElementById('chat');
-                const submitButton = document.getElementById('chat-message-submit');
+                document.getElementById('chat-message-submit').addEventListener('click', function(e)
+                {
+                    e.preventDefault();
+                    var mensaje = document.getElementById('chat-message-input').value;
+                    var csrftoken = document.querySelector('[name=csrfmiddlewaretoken]').value;
+                    fetch('/api/feedbackshop/', {
+                        method: 'POST',
+                        headers: {
+                            // Aquí debes agregar cualquier otro encabezado necesario
+                            'Content-Type': 'application/json',
+                            'X-CSRFToken': csrftoken  
+                        },
+                        body: JSON.stringify({
+                            'mensaje': mensaje,
+                            'usuario': '{{ request.user.id }}'
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => {
+                        // Para manejar la respuesta exitosa
+                        const chat = document.getElementById('chat');
+                        document.getElementById('chat-message-input').value = '';
 
-                submitButton.addEventListener('click', function(event) {
-                    const message = input.value;
-                    if(message) {
-                        // send message in JSON format
-                        chatSocket.send(JSON.stringify({'message': message}));
-                        // clear input
-                        input.innerHTML = '';
-                        input.value = '';
-                        chat.focus();
-                    }
+                        const dateOptions = {hour: 'numeric', minute: 'numeric', hour12: true};
+                        const datetime = new Date(data.creado).toLocaleString('es', dateOptions);
+                        const name = 'Tú';
+                        
+                        chat.innerHTML += '<div class="message_me">' +
+                                        '<strong>' + name + '</strong> ' +
+                                        '<span class="date_feedback">' + datetime + '</span><br>' +
+                                        data.mensaje + '</div>';
+                        chat.innerHTML += '<div style="display: none;"></div>';
+                        chat.scrollTop = chat.scrollHeight;
+                    })
+                    .catch((error) => {
+                        // Para manejar errores
+                        console.error('Error:', error);
+                    });
                 });
-
-                input.addEventListener('keypress', function(event) {
-                    if (event.key === 'Enter') {
-                    // cancel the default action, if needed
-                    event.preventDefault();
-                    // trigger click event on button
-                    submitButton.click();
-                    }
-                });
-                    
-                input.focus();
-
-            </script>
+                </script>                
         {% endblock %}
         
         
