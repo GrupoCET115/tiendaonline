@@ -2,7 +2,7 @@
 {% load static %}
 
 {% block title %}
-  Your shopping cart
+  Tu carrito de compras | Compufacil
 {% endblock %}
 
 {% block content %}
@@ -14,7 +14,7 @@
           <div class="itemCarrito">
             <a href="{{ product.get_absolute_url }}">
               <img src="{% if product.image %}{{ product.image.url }}
-              {% else %}{% static "img/no_image.png" %}{% endif %}">
+              {% else %}{% static "img/no_image.png" %}{% endif %}" alt="{{ product.name }}">
             </a>
             <div>
               <h4>{{ product.name }}</h4>

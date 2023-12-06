@@ -46,7 +46,7 @@
 
   <div class="product-detail">
     <img src="{% if product.image %}{{ product.image.url }}{% else %}
-    {% static "img/no_image.png" %}{% endif %}">
+    {% static "img/no_image.png" %}{% endif %}" alt="{{ product.name }}">
     <div>
       <div class="chequsito">
         <svg width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round"><path stroke="none" d="M0 0h24v24H0z" fill="none"/><path d="M5 12l5 5l10 -10" /></svg>
@@ -92,7 +92,7 @@
       {% for product in products|slice:":4" %}
           <div class="item">
               <a class="opcion" href="{{ product.get_absolute_url }}">
-                  <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}">
+                  <img src="{% if product.image %}{{ product.image.url }}{% else %}{% static " img/no_image.png" %}{% endif %}" alt="{{ product.name }}">
               </a>
               <a class="opcion" href="{{ product.get_absolute_url }}">{{ product.name }}</a>
               <br>
