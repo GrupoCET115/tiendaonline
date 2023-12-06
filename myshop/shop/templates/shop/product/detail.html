@@ -7,11 +7,13 @@
     <link rel="icon" type="image/x-icon" href="{% if product.image %}{{ product.image.url }}{% else %}
     {% static "img/no_image.png" %}{% endif %}"/>
     <meta name="description" content="{{ product.description }}"/>
+    <meta name="ROBOTS" content="ALL">
+    <meta name="keywords" content="Compufacil, Hardware, Computadoras, RAM, Procesador, Tarjeta Gráfica">
 
     <!--Metadata para compartir en Facebook y Whatsapp-->
     <meta property="og:url" content="{{product.get_absolute_url}}"/>
     <meta property="og:type" content="{{ product.category }}"/>
-    <meta property="og:title" content="{{ product.name }}"/>
+    <meta property="og:title" content="{{ product.name }} | Tienda Online Compufacil - Venta de Hardware para Computadoras"/>
     <meta property="og:description" content="{{ product.description }}"/>
     <meta property="og:image" content="{% if product.image %}{{ product.image.url }}{% else %}
     {% static "img/no_image.png" %}{% endif %}" />
@@ -32,7 +34,7 @@
 {% endblock %}
 
 {% block title %}
-  {{ product.name }} | Compufacil
+  {{ product.name }} ${{ product.price }} | Tienda Online Compufacil - Venta de Hardware para Computadoras
 {% endblock %}
 
 {% block content %}

@@ -8,13 +8,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <!--Titulo de cada pagina servida-->
-    <title>{% block title %}Compufacil{% endblock %}</title>
+    <title>{% block title %}Tienda Online Compufacil - Venta de Hardware para Computadoras{% endblock %}</title>
 
     <!--Incluir metadata de la pagina-->
     {% block metadata %}
     <link rel="icon" type="image/x-icon" href="{% static 'img/compufacil.png'%}"/>
     <meta name="description" content="La satisfacción de nuestros clientes es nuestra prioridad"/>
     <meta name="ROBOTS" content="ALL">
+    <meta name="keywords" content="Compufacil, Hardware, Computadoras, RAM, Procesador, Tarjeta Gráfica">
     {% endblock  %}
 
     <!--Cargar estilo css para chatbot-->
@@ -38,6 +39,23 @@
 
     <!-- Cargar la fuente de íconos Material Icons Sharp desde Google Fonts -->
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Sharp" rel="stylesheet">
+
+    <!-- Matomo -->
+    <script>
+      var _paq = window._paq = window._paq || [];
+      /* tracker methods like "setCustomDimension" should be called before "trackPageView" */
+      _paq.push(['trackPageView']);
+      _paq.push(['enableLinkTracking']);
+      (function() {
+        var u="https://compufacilstore.matomo.cloud/";
+        _paq.push(['setTrackerUrl', u+'matomo.php']);
+        _paq.push(['setSiteId', '1']);
+        var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+        g.async=true; g.src='//cdn.matomo.cloud/compufacilstore.matomo.cloud/matomo.js'; s.parentNode.insertBefore(g,s);
+      })();
+    </script>
+    <!-- End Matomo Code -->
+
   </head>
   <body>
     <div id="cabeza">
@@ -185,4 +203,5 @@
     // Reemplaza los iconos
     feather.replace();
   </script>
+  
 </html>
